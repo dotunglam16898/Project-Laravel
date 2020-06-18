@@ -36,10 +36,26 @@ Route::get('dashboard','Backend\DashboardController@index')->name('backend.dashb
 
 Route::get('products','Backend\ProductController@index')->name('backend.product.index');
 Route::get('products/create','Backend\ProductController@create')->name('backend.product.create');
-Route::get('products/{id?}','Backend\ProductController@show');
+// Route::get('products/{id?}','Backend\ProductController@show');
 
 Route::get('users','Backend\UserController@index')->name('backend.user.index');
 Route::get('users/create','Backend\UserController@create')->name('backend.user.create');
-Route::get('categories/{id?}','Backend\CategoryController@show');
+Route::get('users/showProducts/{id?}','Backend\UserController@showProducts');
+
+// Route::get('categories/{id?}','Backend\CategoryController@show');
+Route::get('categories','Backend\CategoryController@index')->name('backend.category.index');
+Route::get('categories/showProducts/{id?}','Backend\CategoryController@showProducts')->name('backend.category.showProducts');
+
+
+Route::get('products/{id?}','Backend\ProductController@showImages');
+Route::get('products/showCategory/{id?}','Backend\ProductController@showCategory');
+Route::get('products/showImages/{id?}','Backend\ProductController@showImages');
+// Route::get('products/showProducts/{id?}','Backend\ProductController@showProducts');
+
+
+
+Route::get('orders/showproducts/{id?}' , 'Backend\OrderController@showProducts');
+
+
 
 // Route::resource('users', 'Backend\UserController');

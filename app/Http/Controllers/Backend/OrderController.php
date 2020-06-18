@@ -1,14 +1,14 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-use App\Models\Product;
-use App\Models\Image;
-use App\Models\Category;
-use App\User;
+
 use App\Http\Controllers\Controller;
+use App\Models\Order;
+use App\Models\Product;
+use App\User;
 use Illuminate\Http\Request;
 
-class ProductController extends Controller
+class OrderController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,15 +16,8 @@ class ProductController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-
     {
-
-        // $products = Product::get();
-        $products = Product::paginate(10);
-        return view('backend.products.index')->with([
-            'products' => $products
-
-        ]);
+        //
     }
 
     /**
@@ -34,8 +27,8 @@ class ProductController extends Controller
      */
     public function create()
     {
-     return view('backend.products.create');
- }
+        //
+    }
 
     /**
      * Store a newly created resource in storage.
@@ -56,54 +49,24 @@ class ProductController extends Controller
      */
     public function show($id)
     {
-        $product = Product::find($id);
-        dd($product->category->name);
-        
+        //
     }
 
-    public function showImages($id)
+    public function showProducts($id)
     {
-        $product = Product::find($id);
-        // // dd($product);
-        // foreach($products as $product){
-        //     // echo $products->name;
-        $images = $product->images;
+        $order = Order::find($id);
+        $products= $order->products;
         
-
-
-
-
-
-        return view('backend.products.showImages')->with([
-            'images' => $images,
-            'product' => $product
+        // foreach ($products->products as $product) {
+        //     echo $product . '<br>';
+        // }
+         return view('backend.orders.show')->with([
+            
+            'order' => $order,
+            'products' => $products
 
         ]);
     }
-
-    // public function showCategory($id)
-    // {
-    //     $product = Product::find($id);
-    //     // dd($product->category->name);
-    //     foreach ($product->category as $products ) {
-    //     }
-        
-    // }
-
-    // public function showProducts($id)
-    // {
-    //     $user = User::find($id);
-    //     // foreach ($user->products as $users ) {
-    //     //     echo $users->name. '<br>';
-    //     // }
-    //     $products = $user->products;
-    //     return view('backend.users.showProducts')->with([
-
-    //         'user' => $user,
-    //         'products' => $products
-
-    //     ]);
-    // }
 
     /**
      * Show the form for editing the specified resource.

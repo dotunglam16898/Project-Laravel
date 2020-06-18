@@ -8,7 +8,7 @@ class Category extends Model
 {
     protected $table = 'categories';
 
-    public function products(){
+    public function products(){ // 1 danh mục có nhiều sản phẩm
     	return $this->hasMany(Product::class);
     }
 }

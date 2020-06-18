@@ -15,7 +15,12 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        //
+        $categories = Category::paginate(6);
+        return view('backend.categories.index')->with([
+            'categories' => $categories
+
+
+        ]);
     }
 
     /**
@@ -53,6 +58,20 @@ class CategoryController extends Controller
         foreach($category->products as $products){ // Lay content cua tat ca cac ban ghi
             echo $products->content. '<br>';
         }
+    }
+
+    public function showProducts($id){
+        $category = Category::find($id);
+        // foreach ($category->products as $products ) {
+            
+        // }
+        $products = $category->products;
+        return view('backend.categories.showProducts')->with([
+            
+            'category' => $category,
+            'products' => $products
+
+        ]);
     }
 
     /**

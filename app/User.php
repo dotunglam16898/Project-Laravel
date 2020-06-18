@@ -2,6 +2,7 @@
 
 namespace App;
 use App\User_info;
+use App\Models\Product;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
@@ -42,5 +43,9 @@ class User extends Authenticatable
 
     public function userInfo(){
          return $this->hasOne(User_Info::class); // return class giong voi User_info
+    }
+
+    public function products(){
+        return $this->hasMany(Product::class);
     }
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Backend;
 use App\User;
 use App\User_info;
+use App\Models\Product;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -16,13 +17,13 @@ class UserController extends Controller
     public function index()
     {
 
-        // $users = User::get();
-        // $users = User::paginate(3);
-        // return view('backend.users.index')->with([
-        //     'users' =>$users
+        $users = User::get();
+        $users = User::paginate(3);
+        return view('backend.users.index')->with([
+            'users' =>$users
 
 
-        // ]);
+        ]);
 
     //C1 : LAY userInfo theo user
         // $user = User::find(2);
@@ -33,10 +34,10 @@ class UserController extends Controller
 
 
         //C2 : Nguoc lai
-        $userInfo= User_info::find(1);
+        // $userInfo= User_info::find(1);
         
-        $user = $userInfo->user;
-        dd($user);
+        // $user = $userInfo->user;
+        // dd($user);
 
 
     }
@@ -71,6 +72,21 @@ class UserController extends Controller
     public function show($id)
     {
         //
+    }
+
+    public function showProducts($id)
+    {
+        $user = User::find($id);
+        // foreach ($user->products as $users ) {
+        //     echo $users->name. '<br>';
+        // }
+        $products = $user->products;
+        return view('backend.users.showProducts')->with([
+
+            'user' => $user,
+            'products' => $products
+
+        ]);
     }
 
     /**
