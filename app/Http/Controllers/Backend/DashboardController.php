@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Backend;
-
+ use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,7 +14,14 @@ class DashboardController extends Controller
      */
     public function index()
     {
-        return view('backend.dashboard');
+        // $role= Auth::user()->role;
+
+        // if ($role == 1) {
+            return view('backend.dashboard');
+        // }else{
+        //     return view('frontend.home');
+        // }
+        
     }
 
     /**

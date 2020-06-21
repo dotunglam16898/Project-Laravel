@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use Illuminate\Support\Facades\Auth;
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Route;
 //     // $users = DB::table('users')->get();
 //     // dd($users);
 // });
-
+Auth::routes();
 Route::get('/','Frontend\HomeController@index')->name('frontend.index');
 
 
@@ -56,6 +56,27 @@ Route::get('products/showImages/{id?}','Backend\ProductController@showImages');
 
 Route::get('orders/showproducts/{id?}' , 'Backend\OrderController@showProducts');
 
+//-------------------------------------------------------------------------------------------------
+
+
+Route::get('dashboard/login', 'Auth\LoginController@showLoginForm')->name('login.form');
+// Route::get('logout', 'Auth\LoginController@logout')->name('logout');
+
+Route::post('dashboard/login', 'Auth\LoginController@login')->name('login.store');
+
+Route::get('dashboard/register', 'Auth\RegisterController@show')->name('register.form');
+Route::post('dashboard/register', 'Auth\RegisterController@register')->name('register.store');
+
+// Route::get('home/logout','Auth\LoginController@logout_index')->name('logout.index');
+
 
 
 // Route::resource('users', 'Backend\UserController');
+
+
+
+Route::get('/home', 'HomeController@index')->name('home');
+
+
+// Route::get('/', 'welcome')->name('home')->middleware('auth'); // dang nhap trc khi vao trang home
+

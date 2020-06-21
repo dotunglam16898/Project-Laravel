@@ -2,6 +2,8 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
+
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
 
@@ -14,6 +16,11 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // $user = Auth::user();
+        // if ($role == 1) {
+        //     return view('backend.dashboard');
+        // }
+        // dd($user->name);
         // $users = DB::table('users')->get();
         //  $users = DB::table('users')->where('name','admin')->first();
 
@@ -25,9 +32,18 @@ class HomeController extends Controller
 
         //     dd('ok');
 
-        DB::table('users')->where('id','2')->delete();
-        dd('ok xóa');
-    }
+        // DB::table('users')->where('id','2')->delete();
+        // dd('ok xóa');
+
+       $role= Auth::user()->role;
+
+       if ($role == 1) {
+        return view('backend.dashboard');
+    }else{
+       return view('frontend.home');
+   }
+        // return view('home');
+}
 
     /**
      * Show the form for creating a new resource.

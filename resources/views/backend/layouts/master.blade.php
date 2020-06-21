@@ -3,7 +3,7 @@
 <head>
 	@yield('css')
 </head>
-<body class="hold-transition sidebar-mini layout-fixed">
+<body class="hold-transition sidebar-mini layout-fixed login-page">
 	<div class="wrapper">
 		@include('backend.includes.navbar')
 
