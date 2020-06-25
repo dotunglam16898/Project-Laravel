@@ -49,15 +49,19 @@
 								<button type="submit" class="btn btn-primary">LogOut</button>
 							</form>
 						</li>
+						<li><a href="my-account.html"><i class="fa fa-user"></i> Xin chào {{Auth::user()->name}}</a></li>
+						
+						<li><a href="wishlist.html"><i class="fa fa-heart"></i> Wish List (0)</a></li>
+						<li><a href="checkout.html"><i class="fa fa-share"></i> Checkout</a></li>
 						
 						@else
 						{{-- <li><a href="{{route('login.form')}}"><i class="fa fa-unlock-alt"></i></a>Login</li> --}}
-						<li><a href=""><i class="fa fa-unlock-alt"></i> Login</a></li>
-
-						@endif
+						<li><a href="{{route('login.form')}}"><i class="fa fa-unlock-alt"></i> Login</a></li>
 						<li><a href="my-account.html"><i class="fa fa-user"></i> My Account</a></li>
 						<li><a href="wishlist.html"><i class="fa fa-heart"></i> Wish List (0)</a></li>
 						<li><a href="checkout.html"><i class="fa fa-share"></i> Checkout</a></li>
+						@endif
+						
 						
 						
 					</ul>

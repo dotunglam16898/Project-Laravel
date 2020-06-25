@@ -80,7 +80,7 @@
 								<th>Số điện thoại</th>
 
 								{{-- <th>Updated_at</th> --}}
-								<th>Trạng thái</th>
+								<th>Vai trò</th>
 							</tr>
 						</thead>
 						<tbody>
@@ -91,8 +91,8 @@
 								<td>{{ $user->name }}</td>
 								<td>{{ $user->address }}</td>
 								<td>{{ $user->phone }}</td>
-								{{-- <td>{{ $user->updated_at }}</td> --}}
-								<td><span class="tag tag-success">Approved</span></td>
+								<td>{{ $user->role }}</td>
+								{{-- <td><span class="tag tag-success">Approved</span></td> --}}
 							</tr>
 
 							@endforeach

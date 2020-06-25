@@ -3,7 +3,7 @@
 @section('css')
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>AdminLTE 3 |Product_Create</title>
+<title>AdminLTE 3 |Category_Create</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -29,22 +29,23 @@
 
 @endsection
 
+
 @section('content-header')
 <div class="container-fluid">
 	<div class="row mb-2">
 		<div class="col-sm-6">
-			<h1 class="m-0 text-dark">Dashboard</h1>
+			<h1 class="m-0 text-dark">Tạo danh mục</h1>
 		</div><!-- /.col -->
 		<div class="col-sm-6">
 			<ol class="breadcrumb float-sm-right">
 				<li class="breadcrumb-item"><a href="#">Home</a></li>
-				<li class="breadcrumb-item active">Dashboard v1</li>
+				<li class="breadcrumb-item"><a href="#">Danh mục</a></li>
+				<li class="breadcrumb-item active">Tạo mới</li>
 			</ol>
 		</div><!-- /.col -->
-	</div>
-</div>
+	</div><!-- /.row -->
+</div><!-- /.container-fluid -->
 @endsection
-
 
 @section('content')
 <!-- Content -->
@@ -55,12 +56,14 @@
 			<!-- general form elements -->
 			<div class="card">
 				<div class="card-header">
-					<h3 class="card-title">Tạo sản phẩm</h3>
+					<h3 class="card-title">Tạo mới danh mục</h3>
 				</div>
 				<!-- /.card-header -->
 				<!-- form start -->
-				<form role="form" method="POST" action="{{route('backend.product.store')}}">
+				<form role="form" method="POST" action="{{route('backend.category.store')}}">
 					@csrf
+
+
 					<div class="card-body">
 						@if ($errors->any())
 						<div class="alert alert-danger">
@@ -72,78 +75,52 @@
 						</div>
 						@endif
 						<div class="form-group">
-							<label for="exampleInputEmail1">Tên sản phẩm</label>
-							<input type="text" name="name" class="form-control" id="" placeholder="Điền tên sản phẩm">
+							<label for="exampleInputEmail1">Tên danh mục</label>
+							<input type="text" name="name" class="form-control" id="" placeholder="Tên người dùng">
 						</div>
-						@error('name')
-						<div class="alert alert-danger">{{ $message }}</div>
-						@enderror
 						<div class="form-group">
-							<label>Danh mục sản phẩm</label>
-							<select name="category_id" class="form-control select2" style="width: 100%;">
-								<option>--Chọn danh mục---</option>
-								@foreach($categories as $category)
-								<option value="{{ $category->id }}">{{ $category->name }}</option>
-								@endforeach
+							<label for="exampleInputEmail1">Parent_id</label>
+							<input type="text" name="parent_id" class="form-control" id="" placeholder="Tên người dùng">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Depth</label>
+							<input type="text" name="depth" class="form-control" id="" placeholder="Tên người dùng">
+						</div>
+						{{-- <div class="form-group">
+							<label for="exampleInputEmail1">Email</label>
+							<input type="email" name="email" class="form-control" id="" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Số điện thoại</label>
+							<input type="text" name="phone" class="form-control" id="" placeholder="SĐT người dùng">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Địa chỉ</label>
+							<input type="text" name="address" class="form-control" id="" placeholder="Địa chỉ người dùng">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Mật khẩu</label>
+							<input type="password" name="password" class="form-control" id="">
+						</div> --}}
+						{{-- <div class="form-group">
+							<label for="exampleInputEmail1">Nhập lại mật khẩu</label>
+							<input type="password" name="repassword" class="form-control" id="">
+						</div> --}}
+						{{-- <div class="form-group">
+							<label>Quyền</label>
+							<select class="form-control select2" name="role" style="width: 100%;">
+								<option>Chọn quyền</option>
+								<option value="1">Admin</option>
+								<option value="2">User</option>
 							</select>
-						</div>
-						<div class="row">
-							<div class="col-6">
-								<div class="form-group">
-									<label>Giá gốc</label>
-									<input type="text" name="origin_price" class="form-control" placeholder="Điền giá gốc">
-								</div>
-								@error('origin_price')
-								<div class="alert alert-danger">{{ $message }}</div>
-								@enderror
-							</div>
-							<div class="col-6">
-								
-								<div class="form-group">
-									<label>Giá bán</label>
-									<input type="text" name="sale_price" class="form-control" placeholder="Điền giá gốc">
-
-								</div>
-								@error('sale_price')
-								<div class="alert alert-danger">{{ $message }}</div>
-								@enderror
-							</div>
-						</div>
-						<div class="form-group">
-							<label for="exampleInputEmail1">Mô tả sản phẩm</label>
-							<textarea class="textarea" name="content" placeholder="Place some text here"
-							style="width: 100%; height: 200px; font-size: 14px; line-height: 18px; border: 1px solid #dddddd; padding: 10px;"></textarea>
-						</div>
-						@error('content')
-						<div class="alert alert-danger">{{ $message }}</div>
-						@enderror
-						<div class="form-group">
-							<label for="exampleInputFile">Hình ảnh sản phẩm</label>
-							<div class="input-group">
-								<div class="custom-file">
-									<input type="file" class="custom-file-input" id="exampleInputFile">
-									<label class="custom-file-label" for="exampleInputFile">Choose file</label>
-								</div>
-								<div class="input-group-append">
-									<span class="input-group-text" id="">Upload</span>
-								</div>
-							</div>
-						</div>
-						<div class="form-group">
-							<label>Trạng thái sản phẩm</label>
-							<select name="status" class="form-control select2" style="width: 100%;">
-								<option>--Chọn trạng thái---</option>
-								<option value="0">Đang nhập</option>
-								<option value="1">Mở bán</option>
-								<option value="-1">Hết hàng</option>
-							</select>
-						</div>
+						</div> --}}
 					</div>
 					<!-- /.card-body -->
 
 					<div class="card-footer">
-						<a href="{{ route('backend.product.index') }}" class="btn btn-default">Huỷ bỏ</a>
-						<button type="submit" class="btn btn-success">Tạo mới</button>
+						{{-- <button type="submit" class="btn btn-default">Huỷ bỏ</button> --}}
+						<a href="{{ route('backend.category.index') }}" class="btn btn-default">Huỷ bỏ</a>
+						<button type="submit" class="btn btn-sucess">Tạo mới</button>
 					</div>
 				</form>
 			</div>

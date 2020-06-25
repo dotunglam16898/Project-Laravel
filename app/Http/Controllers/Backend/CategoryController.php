@@ -5,6 +5,7 @@ use App\Models\Product;
 use App\Models\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CategoryController extends Controller
 {
@@ -30,7 +31,7 @@ class CategoryController extends Controller
      */
     public function create()
     {
-        //
+        return view('backend.categories.create');
     }
 
     /**
@@ -41,7 +42,31 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validatedData= $request->validate([ // C1
+            'name' => 'required|min:6|max:255',
+            
+            'parent_id' => 'required|numeric',
+            'depth' => 'required|numeric',
+
+
+
+
+
+
+
+
+
+        ]);
+
+        $category = new Category();
+        $category->name = $request->get('name');
+        $category->slug = \Illuminate\Support\Str::slug($request->get('name'));
+        $category->parent_id = $request->get('parent_id');
+        $category->depth = $request->get('depth');
+
+        $category->save();
+
+        return redirect()->route('backend.category.index');
     }
 
     /**
@@ -63,11 +88,11 @@ class CategoryController extends Controller
     public function showProducts($id){
         $category = Category::find($id);
         // foreach ($category->products as $products ) {
-            
+
         // }
         $products = $category->products;
         return view('backend.categories.showProducts')->with([
-            
+
             'category' => $category,
             'products' => $products
 
@@ -82,7 +107,11 @@ class CategoryController extends Controller
      */
     public function edit($id)
     {
-        //
+        $category = Category::find($id);
+        return view('backend.categories.edit')->with([
+            'category' => $category
+
+        ]);
     }
 
     /**
@@ -94,7 +123,30 @@ class CategoryController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $validatedData= $request->validate([ // C1
+            'name' => 'required|min:6|max:255',
+            'parent_id' => 'required|numeric',
+            'depth' => 'required|numeric',
+            
+
+
+
+
+        ]);
+        
+        // Lấy dữ liệu từ Form
+        $name = $request->get('name');
+        $parent_id = $request->get('parent_id');
+        $depth = $request->get('depth');
+        $slug = $request->get('slug');
+        // Cập nhật
+        $category = Category::find($id);
+        $category->name = $name;
+        $category->parent_id = $parent_id;
+        $category->depth = $depth;
+        $category->slug = $slug;
+        $category->save();
+        return redirect()->route('backend.category.index');
     }
 
     /**

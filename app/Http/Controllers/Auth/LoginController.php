@@ -90,7 +90,7 @@ public function logout(Request $request)
     // ? new Response('', 204)
     // : redirect('/dashboard/login');
     Auth::logout();
-    return redirect()->route('login.form');
+    return redirect()->route('frontend.index');
 }
 
 // public function logout_index()

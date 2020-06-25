@@ -17,6 +17,21 @@ class HomeController extends Controller
         return view('frontend.home');
     }
 
+     public function detail()
+    {
+        return view('frontend.product_detail');
+    }
+
+     public function cart()
+    {
+        return view('frontend.cart');
+    }
+
+     public function list()
+    {
+        return view('frontend.shop_list');
+    }
+
     /**
      * Show the form for creating a new resource.
      *

@@ -19,6 +19,9 @@ use Illuminate\Support\Facades\Auth;
 // });
 Auth::routes();
 Route::get('/','Frontend\HomeController@index')->name('frontend.index');
+Route::get('/product_detail','Frontend\HomeController@detail')->name('frontend.show'); // chi tiet sp
+Route::get('/cart','Frontend\HomeController@cart')->name('frontend.cart');
+Route::get('/shop_list','Frontend\HomeController@list')->name('frontend.list');
 
 
 
@@ -32,25 +35,34 @@ Route::get('/','Frontend\HomeController@index')->name('frontend.index');
 // Route::get('/dashboard','DashboardController@index')->name('backend.dashboard');
 // });
 
-Route::get('dashboard','Backend\DashboardController@index')->name('backend.dashboard');
+Route::get('dashboard','Backend\DashboardController@index')->name('backend.dashboard')->middleware('auth');
 
 Route::get('products','Backend\ProductController@index')->name('backend.product.index');
 Route::get('products/create','Backend\ProductController@create')->name('backend.product.create');
+// Route::get('products/{id?}','Backend\ProductController@showImages');
+// Route::get('products/showCategory/{id?}','Backend\ProductController@showCategory');
+// Route::get('products/showImages/{id?}','Backend\ProductController@showImages');
+Route::post('products/store', 'Backend\ProductController@store')->name('backend.product.store');
+Route::get('products/edit/{id?}', 'Backend\ProductController@edit')->name('backend.product.edit');
+Route::match(['put','patch'], 'products/{products}', 'Backend\ProductController@update')->name('backend.product.update');
+
 // Route::get('products/{id?}','Backend\ProductController@show');
 
 Route::get('users','Backend\UserController@index')->name('backend.user.index');
 Route::get('users/create','Backend\UserController@create')->name('backend.user.create');
 Route::get('users/showProducts/{id?}','Backend\UserController@showProducts');
+Route::post('users/store', 'Backend\UserController@store')->name('backend.user.store');
 
 // Route::get('categories/{id?}','Backend\CategoryController@show');
 Route::get('categories','Backend\CategoryController@index')->name('backend.category.index');
 Route::get('categories/showProducts/{id?}','Backend\CategoryController@showProducts')->name('backend.category.showProducts');
+Route::post('/', 'Backend\CategoryController@store')->name('backend.category.store');
+Route::get('categories/create','Backend\CategoryController@create')->name('backend.category.create');
+Route::get('categories/edit/{id?}', 'Backend\CategoryController@edit')->name('backend.category.edit');
+Route::match(['put','patch'], 'categories/{categories}', 'Backend\CategoryController@update')->name('backend.category.update');
 
 
-Route::get('products/{id?}','Backend\ProductController@showImages');
-Route::get('products/showCategory/{id?}','Backend\ProductController@showCategory');
-Route::get('products/showImages/{id?}','Backend\ProductController@showImages');
-// Route::get('products/showProducts/{id?}','Backend\ProductController@showProducts');
+
 
 
 

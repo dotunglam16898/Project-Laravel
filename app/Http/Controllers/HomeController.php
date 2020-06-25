@@ -35,14 +35,16 @@ class HomeController extends Controller
         // DB::table('users')->where('id','2')->delete();
         // dd('ok xóa');
 
-       $role= Auth::user()->role;
+     $role= Auth::user()->role;
 
-       if ($role == 1) {
+     if ($role == 1) {
         return view('backend.dashboard');
     }else{
-       return view('frontend.home');
-   }
+     return view('frontend.home');
+ }
         // return view('home');
+
+         // return view('frontend.product_detail');
 }
 
     /**
@@ -76,6 +78,10 @@ class HomeController extends Controller
     {
         //
     }
+
+    
+
+
 
     /**
      * Show the form for editing the specified resource.

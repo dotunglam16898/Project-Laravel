@@ -76,11 +76,12 @@
 								<th>ID</th>
 								<th>Tên sản phẩm</th>
 								<th>Nội dung</th>
-								<th>Danh mục sản phẩm</th>
+								{{-- <th>Danh mục sản phẩm</th> --}}
 								<th>Giá bán gốc</th>
 								<th>Giá bán ra</th>
-								<th>Ảnh sản phẩm</th>
+								{{-- <th>Ảnh sản phẩm</th> --}}
 								<th>Trạng thái</th>
+								<th>Action</th>
 								{{-- <th>Updated_at</th> --}}
 							</tr>
 						</thead>
@@ -90,11 +91,14 @@
 								<td>{{ $product->id }}</td>
 								<td>{{ $product->name }}</td>
 								<td>{{ $product->content }}</td>
-								<td>{{ $product->category}}</td>
+								{{-- <td>{{ $product->category}}</td> --}}
 								<td>{{ $product->origin_price }}</td>
 								<td>{{ $product->sale_price }}</td>
-								<td>{{ $product->image }}</td>
-								<td><span class="tag tag-success">Approved</span></td>
+								<td>{{ $product->status }}</td>
+								<td>
+									<a href="{{route('backend.product.edit',$product->id)}}"><button class="btn btn-primary">Edit</button></a>
+								</td>
+								{{-- <td><span class="tag tag-success">Approved</span></td> --}}
 								{{-- <td>{{ $product->updated_at }}</td> --}}
 								
 							</tr>

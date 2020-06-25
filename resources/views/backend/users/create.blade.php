@@ -60,33 +60,58 @@
 				</div>
 				<!-- /.card-header -->
 				<!-- form start -->
-				<form role="form">
+				<form role="form" method="POST" action="{{route('backend.user.store')}}">
+					@csrf
+
+
 					<div class="card-body">
+						@if ($errors->any())
+						<div class="alert alert-danger">
+							<ul>
+								@foreach ($errors->all() as $error)
+								<li>{{ $error }}</li>
+								@endforeach
+							</ul>
+						</div>
+						@endif
 						<div class="form-group">
 							<label for="exampleInputEmail1">Tên</label>
-							<input type="text" class="form-control" id="" placeholder="Tên người dùng">
+							<input type="text" name="name" class="form-control" id="" placeholder="Tên người dùng">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Email</label>
-							<input type="email" class="form-control" id="" placeholder="Email">
+							<input type="email" name="email" class="form-control" id="" placeholder="Email">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Số điện thoại</label>
+							<input type="text" name="phone" class="form-control" id="" placeholder="SĐT người dùng">
+						</div>
+						<div class="form-group">
+							<label for="exampleInputEmail1">Địa chỉ</label>
+							<input type="text" name="address" class="form-control" id="" placeholder="Địa chỉ người dùng">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Mật khẩu</label>
-							<input type="password" class="form-control" id="">
+							<input type="password" name="password" class="form-control" id="">
 						</div>
+						{{-- <div class="form-group">
+							<label for="exampleInputEmail1">Nhập lại mật khẩu</label>
+							<input type="password" name="repassword" class="form-control" id="">
+						</div> --}}
 						<div class="form-group">
 							<label>Quyền</label>
-							<select class="form-control select2" style="width: 100%;">
+							<select class="form-control select2" name="role" style="width: 100%;">
 								<option>--Chọn quyền---</option>
-								<option>Admin</option>
-								<option>User</option>
+								<option value="1">Admin</option>
+								<option value="2">User</option>
 							</select>
 						</div>
 					</div>
 					<!-- /.card-body -->
 
 					<div class="card-footer">
-						<button type="submit" class="btn btn-default">Huỷ bỏ</button>
+						{{-- <button type="submit" class="btn btn-default">Huỷ bỏ</button> --}}
+						<a href="{{ route('backend.user.index') }}" class="btn btn-default">Huỷ bỏ</a>
 						<button type="submit" class="btn btn-sucess">Tạo mới</button>
 					</div>
 				</form>
@@ -105,7 +130,7 @@
 <script src="asset/plugins/jquery-ui/jquery-ui.min.js"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
-    $.widget.bridge('uibutton', $.ui.button)
+	$.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
 <script src="asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>

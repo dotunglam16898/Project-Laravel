@@ -19,23 +19,25 @@ class UsersTableSeeder extends Seeder
                 'address' => 'Hà Nội',
                 'phone' => '090200012',
                 'email' => 'admin1@gmail.com',
-                'password' => '123456'
+                'password' => '123456',
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
                 
 
                 
             ]);
-        DB::table('users')->insert(
-            [
-                'name' => 'admin',
-                'role' => 2,
-                'address' => 'Hà Nội',
-                'phone' => '090200012',
-                'email' => 'ddotunglam@gmail.com',
-                'password' => '12345678'
-                
+        // DB::table('users')->insert(
+        //     [
+        //         'name' => 'admin',
+        //         'role' => 2,
+        //         'address' => 'Hà Nội',
+        //         'phone' => '090200012',
+        //         'email' => 'ddotunglam@gmail.com',
+        //         'password' => '12345678'
 
-                
-            ]);
+
+
+        //     ]);
 
         // for ($i=10; $i <30 ; $i++) {  
         //     DB::table('users')->insert([

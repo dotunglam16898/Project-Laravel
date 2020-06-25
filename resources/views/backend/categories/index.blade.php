@@ -77,6 +77,7 @@
 								<th>Tên Danh mục</th>
 								<th>Slug</th>
 								<th>Updated_at</th>
+								<th>Action</th>
 								
 							</tr>
 						</thead>
@@ -91,6 +92,9 @@
 								<td>{{ $category->image }}</td> --}}
 								{{-- <td><span class="tag tag-success">Approved</span></td> --}}
 								<td>{{ $category->updated_at }}</td>
+								<td>
+									<a href="{{route('backend.category.edit',$category->id)}}"><button class="btn btn-primary">Edit</button></a>
+								</td>
 								
 							</tr>
 
