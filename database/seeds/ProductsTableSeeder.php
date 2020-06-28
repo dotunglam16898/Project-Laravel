@@ -20,13 +20,15 @@ class ProductsTableSeeder extends Seeder
         	'sale_price' => '1000000',
         	'status' => 1,
         	'discount_percent' => '20',
-        	
-        	
+           'created_at' => \Carbon\Carbon::now(),
+           'updated_at' => \Carbon\Carbon::now()
            
-            
            
-            
-        ]);
+           
+           
+           
+           
+       ]);
         for($i=2; $i<20;$i++){
             DB::table('products')->insert([
                 'name' => 'laptop dell'.$i,
@@ -36,7 +38,9 @@ class ProductsTableSeeder extends Seeder
                 'sale_price' => '20000000',
                 'status' => 2,
                 'discount_percent' => $i,
-                'category_id' => '2'
+                'category_id' => '2',
+                'created_at' => \Carbon\Carbon::now(),
+                'updated_at' => \Carbon\Carbon::now()
 
 
             ]);

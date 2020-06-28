@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 use App\Models\User;
-
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Http\Request;
@@ -16,6 +16,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+
+        Storage::put('test1.txt', 'lam');
+        dd();
         // $user = Auth::user();
         // if ($role == 1) {
         //     return view('backend.dashboard');

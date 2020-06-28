@@ -93,7 +93,11 @@
 								{{-- <td><span class="tag tag-success">Approved</span></td> --}}
 								<td>{{ $category->updated_at }}</td>
 								<td>
+									<a href=""  class="btn btn-success">Detail</a>
 									<a href="{{route('backend.category.edit',$category->id)}}"><button class="btn btn-primary">Edit</button></a>
+									
+									
+									<a href=""  class="btn btn-danger">Delete</a>
 								</td>
 								
 							</tr>

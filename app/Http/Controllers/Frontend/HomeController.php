@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers\Frontend;
-
+use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -14,6 +14,23 @@ class HomeController extends Controller
      */
     public function index()
     {
+        // Storage::put('abc/test2.txt', 'lamdo');
+       // $check =  Storage::disk('public')->exists('abc/test3.txt','Dotunglam');
+       // Storage::disk('public')->put('abc/test3.txt','Dotunglam');
+        // dd($check);
+        // dd('ok');
+        // $contents = Storage::get('test3.txt');
+        // dd($contents);
+        // return Storage::disk('public')->download('abc/test3.txt');
+        // $files =Storage::allFiles('public');
+        // dd($files);
+
+        // $files =Storage::makeDirectory('abcde');
+        // dd($files);
+
+        // $files =Storage::deleteDirectory('abcde');
+        // dd($files);
+        
         return view('frontend.home');
     }
 

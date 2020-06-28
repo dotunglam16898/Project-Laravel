@@ -16,7 +16,7 @@ class ImageTableSeeder extends Seeder
             'id' => 1,
             'name' => 'headphone',
             'product_id' => 1,
-            'path' => asset('images/1.jpg'),
+            // 'path' => asset('images/1.jpg'),
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -25,7 +25,7 @@ class ImageTableSeeder extends Seeder
             'id' => 2,
             'name' => 'headphone2',
             'product_id' => 2,
-            'path' => asset('images/2.jpg'),
+            // 'path' => asset('images/2.jpg'),
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);
@@ -35,7 +35,7 @@ class ImageTableSeeder extends Seeder
             'id' => 3,
             'name' => 'headphone3',
             'product_id' => 1,
-            'path' => asset('images/3.jpg'),  
+            // 'path' => asset('images/3.jpg'),  
             'created_at' => \Carbon\Carbon::now(),
             'updated_at' => \Carbon\Carbon::now()
         ]);

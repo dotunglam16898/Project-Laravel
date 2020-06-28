@@ -3,7 +3,7 @@
 @section('css')
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>AdminLTE 3 |User_Create</title>
+<title>AdminLTE 3 |product_detail</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -34,13 +34,13 @@
 <div class="container-fluid">
 	<div class="row mb-2">
 		<div class="col-sm-6">
-			<h1 class="m-0 text-dark">Tạo người dùng</h1>
+			<h1 class="m-0 text-dark">Chi tiết sản phẩm</h1>
 		</div><!-- /.col -->
 		<div class="col-sm-6">
 			<ol class="breadcrumb float-sm-right">
 				<li class="breadcrumb-item"><a href="#">Home</a></li>
-				<li class="breadcrumb-item"><a href="#">Người dùng</a></li>
-				<li class="breadcrumb-item active">Tạo mới</li>
+				<li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
+				<li class="breadcrumb-item active">Chi tiết</li>
 			</ol>
 		</div><!-- /.col -->
 	</div><!-- /.row -->
@@ -56,65 +56,75 @@
 			<!-- general form elements -->
 			<div class="card">
 				<div class="card-header">
-					<h3 class="card-title">Tạo mới người dùng</h3>
+					<h3 class="card-title">Chi tiết sản phẩm</h3>
 				</div>
 				<!-- /.card-header -->
 				<!-- form start -->
-				<form role="form" method="POST" action="{{route('backend.user.store')}}">
-					@csrf
+				
 
 
-					<div class="card-body">
-						@if ($errors->any())
-						<div class="alert alert-danger">
-							<ul>
-								@foreach ($errors->all() as $error)
-								<li>{{ $error }}</li>
-								@endforeach
-							</ul>
-						</div>
+				<div class="card-body">
+					<h5>-Tên sản phẩm : {{$product->name}}</h5>
+					<br>
+					<h5>-Slug:{{$product->slug}}</h5>
+					<br>
+					<h5>-Nội dung: {{htmlspecialchars_decode($product->content)}}</h5>
+					<br>
+					<h5>-Giá ban đầu: {{$product->origin_price}}</h5>
+					<br>
+					<h5>-Giá bán ra: {{$product->sale_price}}</h5>
+					<br>
+					<h5>-Trạng thái: 
+						@if($product->status == 0)
+						<p>Đang nhập</p>
+						@elseif($product->status ==1)
+						<p>Mở bán</p>
+						@else
+						<p>Hết hàng</p>
 						@endif
-						<div class="form-group">
-							<label for="exampleInputEmail1">Tên</label>
-							<input type="text" name="name" class="form-control" id="" placeholder="Tên người dùng">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputEmail1">Email</label>
-							<input type="email" name="email" class="form-control" id="" placeholder="Email">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputEmail1">Số điện thoại</label>
-							<input type="text" name="phone" class="form-control" id="" placeholder="SĐT người dùng">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputEmail1">Địa chỉ</label>
-							<input type="text" name="address" class="form-control" id="" placeholder="Địa chỉ người dùng">
-						</div>
-						<div class="form-group">
-							<label for="exampleInputEmail1">Mật khẩu</label>
-							<input type="password" name="password" class="form-control" id="">
-						</div>
-						{{-- <div class="form-group">
-							<label for="exampleInputEmail1">Nhập lại mật khẩu</label>
-							<input type="password" name="repassword" class="form-control" id="">
-						</div> --}}
-						<div class="form-group">
-							<label>Quyền</label>
-							<select class="form-control select2" name="role" style="width: 100%;">
-								<option>--Chọn quyền---</option>
-								<option value="1">Admin</option>
-								<option value="2">User</option>
-							</select>
-						</div>
-					</div>
-					<!-- /.card-body -->
 
-					<div class="card-footer">
-						{{-- <button type="submit" class="btn btn-default">Huỷ bỏ</button> --}}
-						<a href="{{ route('backend.user.index') }}" class="btn btn-default">Huỷ bỏ</a>
-						<button type="submit" class="btn btn-sucess">Tạo mới</button>
-					</div>
-				</form>
+
+
+						
+
+					</h5>
+					<br>
+					<h5>-Phần trăm giảm giá: {{ $product->discount_percent}}</h5>
+					<br>
+					<h5>-Ảnh sản phẩm:
+						@foreach($images as $image)
+						<div>
+							<img src="{{asset($image->path)}}" width="20%" height="20%"><br>
+						</div>
+
+						
+						@endforeach
+
+					</h5>
+					<br>
+					
+					
+					
+					<h5>-Danh mục:{{$categories->name}}
+
+					</h5>
+					
+					
+
+					
+					<br>
+					<h5>Created_at: {{$product->created_at}}</h5>
+					<br>
+					<h5>Updated_at: {{$product->updated_at}}</h5>
+
+
+				</div>
+				<!-- /.card-body -->
+
+				<div class="card-footer">
+					<a href="{{ route('backend.product.index') }}" class="btn btn-success">Quay lại</a>
+					
+				</div>
 			</div>
 		</div>
 	</div>
@@ -125,6 +135,7 @@
 
 
 @section('script')
+
 <script src="{{asset('asset/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
 <script src="{{asset('asset/plugins/jquery-ui/jquery-ui.min.js')}}"></script>

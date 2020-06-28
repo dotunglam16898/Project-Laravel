@@ -94,9 +94,26 @@
 								{{-- <td>{{ $product->category}}</td> --}}
 								<td>{{ $product->origin_price }}</td>
 								<td>{{ $product->sale_price }}</td>
-								<td>{{ $product->status }}</td>
+								{{-- <td>{{$product->images}}</td> --}}
+								
+									@if($product->status == 0)
+									<td>Đang nhập</td>
+									@elseif($product->status ==1)
+									<td>Mở bán</td>
+									@else
+									<td>Hết hàng</td>
+
+
+
+
+									@endif
+
+								
 								<td>
+									<a href="{{route('backend.product.show',$product->id)}}"  class="btn btn-success">Detail</a>
 									<a href="{{route('backend.product.edit',$product->id)}}"><button class="btn btn-primary">Edit</button></a>
+									<a href="{{route('backend.product.destroy',$product->id)}}"  class="btn btn-danger">Delete</a>
+
 								</td>
 								{{-- <td><span class="tag tag-success">Approved</span></td> --}}
 								{{-- <td>{{ $product->updated_at }}</td> --}}

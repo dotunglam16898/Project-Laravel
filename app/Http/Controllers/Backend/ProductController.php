@@ -10,6 +10,8 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use App\Http\Requests\StoreProductRequest;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Storage;
+use Illuminate\Validation\Rule;
 
 class ProductController extends Controller
 {
@@ -22,10 +24,13 @@ class ProductController extends Controller
 
     {
 
-        // $product->s = Product::get();
+        // $product = Product::get();
+        // $product = Product::find($id);
         $product = Product::paginate(10);
+        // $images = $product->images;
         return view('backend.products.index')->with([
-            'products' => $product
+            'products' => $product,
+            // 'images' => $images
 
         ]);
     }
@@ -37,10 +42,11 @@ class ProductController extends Controller
      */
     public function create()
     {
-
+        $product = Product::get();
         $categories = Category::get();
         return view('backend.products.create')->with([
-            'categories' => $categories
+            'categories' => $categories,
+            'product' => $product
         ]);
         // return view('backend.products.create');
     }
@@ -61,21 +67,14 @@ class ProductController extends Controller
             'category_id' =>'required',
             'status' => 'required',
             'content' => 'required',
-
+            // 'images'=>'file'
 
 
 
         ]);
 
 
-        // $validatedData = $request->validate([ // C2
-        //     'name' => ['required','min:6','max:255'],
-        //     'origin_price' => ['required','numeric'],
-        //     'sale_price' => ['required','numeric']
-
-
-
-        // ]);
+       
 
         // $validator = Validator::make($request->all(),
         //     [
@@ -110,7 +109,16 @@ class ProductController extends Controller
 
         // }
 
+        // if ($request->hasFile('image')){
+        //     // $path = Storage::putFile('images',$request->file('image')); C1
+        //     // $path = Storage::disk()
+        //     $file = $request->file('image');
 
+        //     $path = $file->store('images',['disk' => 'public']);
+        //     dd('ok');
+        // }else{
+        //     dd('khong co file');
+        // }
 
         $product = new Product();
         $product->name = $request->get('name');
@@ -124,6 +132,48 @@ class ProductController extends Controller
         $product->user_id = Auth::user()->id;
         $product->save();
 
+        if($request->hasFile('images')){
+            $images = $request->file('images');
+            foreach ($images as $image) {
+
+                // $file = $image->store('image');
+                $namefile= $image->getClientOriginalName();
+                // $path= 'storage/products/'.$namefile;
+                // $url = Storage::url($namefile);
+                // $url = $path;
+
+
+
+                $product_image= Storage::disk('public')->putFileAs('products',$image,$namefile);
+
+                $url = Storage::url($product_image);
+                 // dd($url);
+
+                 $image = $product->images()->create([
+                'name' => $namefile,
+                'path' => $url
+
+
+            ]);
+            }
+
+            // $image = new Image();
+            // $image->name = $namefile;
+            // $image->path = $url;
+            // // $image->product_id = 1;
+            // $image->save();
+            // dd('ok');
+           
+            // dd($image);
+        }else{
+            dd('ko co file');
+        }
+
+
+
+
+        
+
         return redirect()->route('backend.product.index');
     }
 
@@ -136,7 +186,15 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
-        dd($product->category->name);
+        $categories = $product ->category;
+        // dd($categories);
+        $images = $product->images;
+        // dd($images);
+        return view('backend.products.show')->with([
+            'product' => $product,
+            'images' => $images,
+            'categories' => $categories
+        ]);
         
     }
 
@@ -261,6 +319,9 @@ class ProductController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $product = Product::find($id);
+        $product->delete();
+        // return redirect()->back();
+        return redirect()->route('backend.product.index');
     }
 }

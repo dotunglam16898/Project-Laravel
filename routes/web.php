@@ -45,6 +45,8 @@ Route::get('products/create','Backend\ProductController@create')->name('backend.
 Route::post('products/store', 'Backend\ProductController@store')->name('backend.product.store');
 Route::get('products/edit/{id?}', 'Backend\ProductController@edit')->name('backend.product.edit');
 Route::match(['put','patch'], 'products/{products}', 'Backend\ProductController@update')->name('backend.product.update');
+Route::get('products/show/{id?}','Backend\ProductController@show')->name('backend.product.show');
+Route::get('products/destroy/{id?}','Backend\ProductController@destroy')->name('backend.product.destroy');
 
 // Route::get('products/{id?}','Backend\ProductController@show');
 

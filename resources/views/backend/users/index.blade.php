@@ -80,7 +80,8 @@
 								<th>Số điện thoại</th>
 
 								{{-- <th>Updated_at</th> --}}
-								<th>Vai trò</th>
+								<th>Action</th>
+
 							</tr>
 						</thead>
 						<tbody>
@@ -91,8 +92,15 @@
 								<td>{{ $user->name }}</td>
 								<td>{{ $user->address }}</td>
 								<td>{{ $user->phone }}</td>
-								<td>{{ $user->role }}</td>
+								{{-- <td>{{ $user->role }}</td> --}}
 								{{-- <td><span class="tag tag-success">Approved</span></td> --}}
+								<td>
+									<a href=""  class="btn btn-success">Detail</a>
+									<a href=""><button class="btn btn-primary">Edit</button></a>
+									
+									
+									<a href=""  class="btn btn-danger">Delete</a>
+								</td>
 							</tr>
 
 							@endforeach

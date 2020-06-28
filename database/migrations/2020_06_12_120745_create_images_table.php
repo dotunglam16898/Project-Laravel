@@ -18,7 +18,7 @@ class CreateImagesTable extends Migration
             $table->string('name');
             
             $table->string('path')->comment('Đường dẫn ảnh');
-            $table->integer('product_id');
+            $table->integer('product_id')->default();
             $table->timestamps();
         });
     }
