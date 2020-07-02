@@ -3,7 +3,7 @@
 @section('css')
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>AdminLTE 3 |Orders</title>
+<title>AdminLTE 3 |Orders_detail</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -33,12 +33,12 @@
 <div class="container-fluid">
 	<div class="row mb-2">
 		<div class="col-sm-6">
-			<h1 class="m-0 text-dark">Danh sách user</h1>
+			<h1 class="m-0 text-dark">Danh sách hóa đơn</h1>
 		</div><!-- /.col -->
 		<div class="col-sm-6">
 			<ol class="breadcrumb float-sm-right">
 				<li class="breadcrumb-item"><a href="#">Home</a></li>
-				<li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
+				<li class="breadcrumb-item"><a href="#">Hóa đơn</a></li>
 				<li class="breadcrumb-item active">Danh sách</li>
 			</ol>
 		</div><!-- /.col -->
@@ -56,7 +56,7 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-header">
-					<h3 class="card-title">Sản phẩm mới nhập</h3>
+					<h3 class="card-title">Hóa đơn mới nhập</h3>
 
 					<div class="card-tools">
 						<div class="input-group input-group-sm" style="width: 150px;">
@@ -94,7 +94,7 @@
 								<td>{{ $order->updated_at }}</td>
 
 								<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-								tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
+									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
 								</td>
 								
 								
@@ -124,38 +124,38 @@
 
 
 @section('script')
-<script src="asset/plugins/jquery/jquery.min.js"></script>
+<script src="{{asset('asset/plugins/jquery/jquery.min.js')}}"></script>
 <!-- jQuery UI 1.11.4 -->
-<script src="asset/plugins/jquery-ui/jquery-ui.min.js"></script>
+<script src="{{asset('asset/plugins/jquery-ui/jquery-ui.min.js')}}"></script>
 <!-- Resolve conflict in jQuery UI tooltip with Bootstrap tooltip -->
 <script>
 	$.widget.bridge('uibutton', $.ui.button)
 </script>
 <!-- Bootstrap 4 -->
-<script src="asset/plugins/bootstrap/js/bootstrap.bundle.min.js"></script>
+<script src="{{asset('asset/plugins/bootstrap/js/bootstrap.bundle.min.js')}}"></script>
 <!-- ChartJS -->
-<script src="asset/plugins/chart.js/Chart.min.js"></script>
+<script src="{{asset('asset/plugins/chart.js/Chart.min.js')}}"></script>
 <!-- Sparkline -->
-<script src="asset/plugins/sparklines/sparkline.js"></script>
+<script src="{{asset('asset/plugins/sparklines/sparkline.js')}}"></script>
 <!-- JQVMap -->
-<script src="asset/plugins/jqvmap/jquery.vmap.min.js"></script>
-<script src="asset/plugins/jqvmap/maps/jquery.vmap.usa.js"></script>
+<script src="{{asset('asset/plugins/jqvmap/jquery.vmap.min.js')}}"></script>
+<script src="{{asset('asset/plugins/jqvmap/maps/jquery.vmap.usa.js')}}"></script>
 <!-- jQuery Knob Chart -->
-<script src="asset/plugins/jquery-knob/jquery.knob.min.js"></script>
+<script src="{{asset('asset/plugins/jquery-knob/jquery.knob.min.js')}}"></script>
 <!-- daterangepicker -->
-<script src="asset/plugins/moment/moment.min.js"></script>
-<script src="asset/plugins/daterangepicker/daterangepicker.js"></script>
+<script src="{{asset('asset/plugins/moment/moment.min.js')}}"></script>
+<script src="{{asset('asset/plugins/daterangepicker/daterangepicker.js')}}"></script>
 <!-- Tempusdominus Bootstrap 4 -->
-<script src="asset/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js"></script>
+<script src="{{asset('asset/plugins/tempusdominus-bootstrap-4/js/tempusdominus-bootstrap-4.min.js')}}"></script>
 <!-- Summernote -->
-<script src="asset/plugins/summernote/summernote-bs4.min.js"></script>
+<script src="{{asset('asset/plugins/summernote/summernote-bs4.min.js')}}"></script>
 <!-- overlayScrollbars -->
-<script src="asset/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js"></script>
+<script src="{{asset('asset/plugins/overlayScrollbars/js/jquery.overlayScrollbars.min.js')}}"></script>
 <!-- AdminLTE App -->
-<script src="asset/dist/js/adminlte.js"></script>
+<script src="{{asset('asset/dist/js/adminlte.js')}}"></script>
 <!-- AdminLTE dashboard demo (This is only for demo purposes) -->
-<script src="asset/dist/js/pages/dashboard.js"></script>
+<script src="{{asset('asset/dist/js/pages/dashboard.js')}}"></script>
 <!-- AdminLTE for demo purposes -->
-<script src="asset/dist/js/demo.js"></script>
+<script src="{{asset('asset/dist/js/demo.js')}}"></script>
 
 @endsection

@@ -17,8 +17,8 @@ class HomeController extends Controller
     public function index()
     {
 
-        Storage::put('test1.txt', 'lam');
-        dd();
+        // Storage::put('test1.txt', 'lam');
+        // dd();
         // $user = Auth::user();
         // if ($role == 1) {
         //     return view('backend.dashboard');

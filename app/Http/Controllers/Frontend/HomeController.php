@@ -4,6 +4,10 @@ namespace App\Http\Controllers\Frontend;
 use Illuminate\Support\Facades\Storage;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Product;
+use App\Models\Category;
+use App\User;
+use App\Models\Image;
 
 class HomeController extends Controller
 {
@@ -14,6 +18,7 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
         // Storage::put('abc/test2.txt', 'lamdo');
        // $check =  Storage::disk('public')->exists('abc/test3.txt','Dotunglam');
        // Storage::disk('public')->put('abc/test3.txt','Dotunglam');
@@ -30,13 +35,48 @@ class HomeController extends Controller
 
         // $files =Storage::deleteDirectory('abcde');
         // dd($files);
+
+
+
+        // $products = Product::get();
+        // $products = Product::orderBy('created_at','desc')->take(5)->get();
+        // $products = Product::find($id);
+        // dd($products);
+        $categories = Category::get();
+        $users= User::get();
+        $products = new Product;
+        $images = $products->images()->where('status',1);
+        // dd($images);
+        $productss = Product::orderBy('created_at','desc')->take(5)->get();
+
+        // $images= Image::get();
+        // $images = Product::find($id)->images()->get();
+        // dd($images);
+
+
         
-        return view('frontend.home');
+        return view('frontend.home')->with([
+            'productss' => $productss,
+            'images' => $images
+
+
+
+        ]);
     }
 
-     public function detail()
+     public function detail($id)
     {
-        return view('frontend.product_detail');
+        $product = Product::find($id);
+        $categories = $product ->category;
+        // dd($categories);
+        $images = $product->images;
+        // dd($images);
+        return view('frontend.product_detail')->with([
+            'product' => $product,
+            'images' => $images,
+            'categories' => $categories
+        ]);
+        // return view('frontend.product_detail');
     }
 
      public function cart()

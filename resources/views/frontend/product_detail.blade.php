@@ -13,7 +13,7 @@
 
 		<!-- favicon
 			============================================ -->		
-			<link rel="shortcut icon" type="image/x-icon" href="malias/img/favicon.ico">
+			<link rel="shortcut icon" type="image/x-icon" href="{{asset('malias/img/favicon.ico')}}">
 
 		<!-- Google Fonts
 			============================================ -->		
@@ -22,36 +22,36 @@
 
 		<!-- Bootstrap CSS
 			============================================ -->		
-			<link rel="stylesheet" href="malias/css/bootstrap.min.css">
+			<link rel="stylesheet" href="{{asset('malias/css/bootstrap.min.css')}}">
 		<!-- Font awesome CSS
 			============================================ -->
-			<link rel="stylesheet" href="malias/css/font-awesome.min.css">
+			<link rel="stylesheet" href="{{asset('malias/css/font-awesome.min.css')}}">
 		<!-- owl.carousel CSS
 			============================================ -->
-			<link rel="stylesheet" href="malias/css/owl.carousel.css">
-			<link rel="stylesheet" href="malias/css/owl.theme.css">
-			<link rel="stylesheet" href="malias/css/owl.transitions.css">
+			<link rel="stylesheet" href="{{asset('malias/css/owl.carousel.css')}}">
+			<link rel="stylesheet" href="{{asset('malias/css/owl.theme.css')}}">
+			<link rel="stylesheet" href="{{asset('malias/css/owl.transitions.css')}}">
 		<!-- nivo slider CSS
 			============================================ -->
-			<link rel="stylesheet" href="malias/lib/css/nivo-slider.css" type="text/css">
+			<link rel="stylesheet" href="{{asset('malias/lib/css/nivo-slider.css')}}" type="text/css">
 		<!-- meanmenu CSS
 			============================================ -->
-			<link rel="stylesheet" href="malias/css/meanmenu.min.css">
+			<link rel="stylesheet" href="{{asset('malias/css/meanmenu.min.css')}}">
 		<!-- jquery-ui CSS
 			============================================ -->
-			<link rel="stylesheet" href="malias/css/jquery-ui.css">
+			<link rel="stylesheet" href="{{asset('malias/css/jquery-ui.css')}}">
 		<!-- animate CSS
 			============================================ -->
-			<link rel="stylesheet" href="malias/css/animate.css">
+			<link rel="stylesheet" href="{{asset('malias/css/animate.css')}}">
 		<!-- main CSS
 			============================================ -->
-			<link rel="stylesheet" href="malias/css/main.css">
+			<link rel="stylesheet" href="{{asset('malias/css/main.css')}}">
 		<!-- style CSS
 			============================================ -->
-			<link rel="stylesheet" href="malias/style.css">
+			<link rel="stylesheet" href="{{asset('malias/style.css')}}">
 		<!-- responsive CSS
 			============================================ -->
-			<link rel="stylesheet" href="malias/css/responsive.css">
+			<link rel="stylesheet" href="{{asset('malias/css/responsive.css')}}">
 		</head>
 		<body>
         <!--[if lt IE 8]>
@@ -70,11 +70,11 @@
         					<div class="top-menu">
         						<!-- Start Language -->
         						<ul class="language">
-        							<li><a href="#"><img class="right-5" src="malias/img/flags/gb.png" alt="#">English<i class="fa fa-caret-down left-5"></i></a>
+        							<li><a href="#"><img class="right-5" src="{{asset('malias/img/flags/gb.png')}}" alt="#">English<i class="fa fa-caret-down left-5"></i></a>
         								<ul>
-        									<li><a href="#"><img class="right-5" src="malias/img/flags/fr.png" alt="#">French</a></li>
-        									<li><a href="#"><img class="right-5" src="malias/img/flags/gb.png" alt="#">English</a></li>
-        									<li><a href="#"><img class="right-5" src="malias/img/flags/gb.png" alt="#">English</a></li>
+        									<li><a href="#"><img class="right-5" src="{{asset('malias/img/flags/fr.png')}}" alt="#">French</a></li>
+        									<li><a href="#"><img class="right-5" src="{{asset('malias/img/flags/gb.png')}}" alt="#">English</a></li>
+        									<li><a href="#"><img class="right-5" src="{{asset('malias/img/flags/gb.png')}}" alt="#">English</a></li>
         								</ul>
         							</li>
         						</ul>
@@ -166,7 +166,7 @@
         			<div class="row">
         				<div class="col-lg-3 col-md-12">
         					<div class="logo">
-        						<a href="index.html" title="Malias"><img src="malias/img/logo.png" alt="Malias"></a>
+        						<a href="index.html" title="Malias"><img src="{{asset('malias/img/logo.png')}}" alt="Malias"></a>
         					</div>
         				</div>
         				<div class="col-lg-9 col-md-12">
@@ -214,7 +214,7 @@
         									<div class="mini-cart-content">
         										<div class="cart-img-details">
         											<div class="cart-img-photo">
-        												<a href="#"><img src="malias/img/product/total-cart.jpg" alt="#"></a>
+        												<a href="#"><img src="{{asset('malias/img/product/total-cart.jpg')}}" alt="#"></a>
         											</div>
         											<div class="cart-img-content">
         												<a href="#"><h4>Prod Aldults</h4></a>
@@ -230,7 +230,7 @@
         										<div class="clear"></div>
         										<div class="cart-img-details">
         											<div class="cart-img-photo">
-        												<a href="#"><img src="malias/img/product/total-cart2.jpg" alt="#"></a>
+        												<a href="#"><img src="{{asset('malias/img/product/total-cart2.jpg')}}" alt="#"></a>
         											</div>
         											<div class="cart-img-content">
         												<a href="#"><h4>Fact Prone</h4></a>
@@ -489,7 +489,7 @@
         											</ul>
         										</div>
         										<div class="cat-left-drop-menu-left cat-left-drop-menu-photo">
-        											<a href="#"><img src="malias/img/megamenu/vmega_blog1.jpg" alt="Product"></a>
+        											<a href="#"><img src="{{asset('malias/img/megamenu/vmega_blog1.jpg')}}" alt="Product"></a>
         										</div>
         									</div>
         									<!-- MEGA MENU END -->
@@ -544,7 +544,7 @@
         								<div class="single-product">
         									<div class="product-img">
         										<a href="#">
-        											<img class="primary-img" src="malias/img/product/small/1.jpg" alt="Product">
+        											<img class="primary-img" src="{{asset('malias/img/product/small/1.jpg')}}" alt="Product">
         										</a>
         									</div>
         									<div class="product-description">
@@ -567,7 +567,7 @@
         								<div class="single-product">
         									<div class="product-img">
         										<a href="#">
-        											<img class="primary-img" src="malias/img/product/small/2.jpg" alt="Product">
+        											<img class="primary-img" src="{{asset('malias/img/product/small/2.jpg')}}" alt="Product">
         										</a>
         									</div>
         									<div class="product-description">
@@ -590,7 +590,7 @@
         								<div class="single-product">
         									<div class="product-img">
         										<a href="#">
-        											<img class="primary-img" src="malias/img/product/small/3.jpg" alt="Product">
+        											<img class="primary-img" src="{{asset('malias/img/product/small/3.jpg')}}" alt="Product">
         										</a>
         									</div>
         									<div class="product-description">
@@ -613,7 +613,7 @@
         								<div class="single-product">
         									<div class="product-img">
         										<a href="#">
-        											<img class="primary-img" src="malias/img/product/small/4.jpg" alt="Product">
+        											<img class="primary-img" src="{{asset('malias/img/product/small/4.jpg')}}" alt="Product">
         										</a>
         									</div>
         									<div class="product-description">
@@ -638,7 +638,7 @@
         								<div class="single-product">
         									<div class="product-img">
         										<a href="#">
-        											<img class="primary-img" src="malias/img/product/small/5.jpg" alt="Product">
+        											<img class="primary-img" src="{{asset('malias/img/product/small/5.jpg')}}" alt="Product">
         										</a>
         									</div>
         									<div class="product-description">
@@ -661,7 +661,7 @@
         								<div class="single-product">
         									<div class="product-img">
         										<a href="#">
-        											<img class="primary-img" src="malias/img/product/small/6.jpg" alt="Product">
+        											<img class="primary-img" src="{{asset('malias/img/product/small/6.jpg')}}" alt="Product">
         										</a>
         									</div>
         									<div class="product-description">
@@ -684,7 +684,7 @@
         								<div class="single-product">
         									<div class="product-img">
         										<a href="#">
-        											<img class="primary-img" src="malias/img/product/small/7.jpg" alt="Product">
+        											<img class="primary-img" src="{{asset('malias/img/product/small/7.jpg')}}" alt="Product">
         										</a>
         									</div>
         									<div class="product-description">
@@ -707,7 +707,7 @@
         								<div class="single-product">
         									<div class="product-img">
         										<a href="#">
-        											<img class="primary-img" src="malias/img/product/small/8.jpg" alt="Product">
+        											<img class="primary-img" src="{{asset('malias/img/product/small/8.jpg')}}" alt="Product">
         										</a>
         									</div>
         									<div class="product-description">
@@ -735,10 +735,10 @@
         				<div class="sidebar-banner d-lg-block d-none">
         					<div class="active-sidebar-banner">
         						<div class="single-sidebar-banner">
-        							<a href="#"><img src="malias/img/banner/1.jpg" alt="Product Banner"></a>
+        							<a href="#"><img src="{{asset('malias/img/banner/1.jpg')}}" alt="Product Banner"></a>
         						</div>
         						<div class="single-sidebar-banner">
-        							<a href="#"><img src="malias/img/banner/2.jpg" alt="Product Banner"></a>
+        							<a href="#"><img src="{{asset('malias/img/banner/2.jpg')}}" alt="Product Banner"></a>
         						</div>
         					</div>
         				</div>
@@ -750,659 +750,691 @@
         					<div class="row">
         						<div class="col-lg-5 col-md-5 col-12">
         							<div class="clear"></div>
+
         							<div class="tab-content">
         								<!-- Product = display-1-1 -->
-        								<div role="tabpanel" class="tab-pane fade show active" id="display-1">
+                                        @foreach($images as $image)
+                                        <div role="tabpanel" class="tab-pane fade show active" id="display-1">
+                                           <div class="row">
+                                              <div class="col-12">
+                                                 <div class="toch-photo">
+                                                    <a href="#"><img src="{{asset($image->path)}}" alt="#" /></a>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    @endforeach
+                                    <!-- End Product = display-1-1 -->
+                                    <!-- Start Product = display-1-2 -->
+        								{{-- <div role="tabpanel" class="tab-pane fade" id="display-2">
         									<div class="row">
         										<div class="col-12">
         											<div class="toch-photo">
-        												<a href="#"><img src="malias/img/toch/1.jpg" alt="#" /></a>
+        												<a href="#"><img src="{{asset('malias/img/toch/2.jpg')}}" alt="#" /></a>
         											</div>
         										</div>
         									</div>
-        								</div>
-        								<!-- End Product = display-1-1 -->
-        								<!-- Start Product = display-1-2 -->
-        								<div role="tabpanel" class="tab-pane fade" id="display-2">
-        									<div class="row">
-        										<div class="col-12">
-        											<div class="toch-photo">
-        												<a href="#"><img src="malias/img/toch/2.jpg" alt="#" /></a>
-        											</div>
-        										</div>
-        									</div>
-        								</div>
+        								</div> --}}
         								<!-- End Product = display-1-2 -->
         								<!-- Start Product = di3play-1-3 -->
-        								<div role="tabpanel" class="tab-pane fade" id="display-3">
+        								{{-- <div role="tabpanel" class="tab-pane fade" id="display-3">
         									<div class="row">
         										<div class="col-12">
         											<div class="toch-photo">
-        												<a href="#"><img src="malias/img/toch/3.jpg" alt="#" /></a>
+        												<a href="#"><img src="{{asset('malias/img/toch/3.jpg')}}" alt="#" /></a>
         											</div>
         										</div>
         									</div>
-        								</div>
+        								</div> --}}
         								<!-- End Product = display-1-3 -->
         								<!-- Start Product = di3play-1-4 -->
-        								<div role="tabpanel" class="tab-pane fade" id="display-4">
+        								{{-- <div role="tabpanel" class="tab-pane fade" id="display-4">
         									<div class="row">
         										<div class="col-12">
         											<div class="toch-photo">
-        												<a href="#"><img src="malias/img/toch/4.jpg" alt="#" /></a>
+        												<a href="#"><img src="{{asset('malias/img/toch/4.jpg')}}" alt="#" /></a>
         											</div>
         										</div>
         									</div>
-        								</div>
+        								</div> --}}
         								<!-- End Product = display-1-4 -->
         							</div>
+
         							<!-- Start Toch-prond-Menu -->
+
         							<div class="toch-prond-menu">
         								<ul class="nav">
-        									<li role="presentation" class=" active"><a href="#display-1" role="tab" data-toggle="tab"><img src="malias/img/toch/1.jpg" alt="#" /></a></li>
-        									<li><a href="#display-2" role="tab" data-toggle="tab"><img src="malias/img/toch/2.jpg" alt="#" /></a></li>
-        									<li><a href="#display-3"  role="tab" data-toggle="tab"><img src="malias/img/toch/3.jpg" alt="#" /></a></li>
-        									<li><a href="#display-4"  role="tab" data-toggle="tab"><img src="malias/img/toch/4.jpg" alt="#" /></a></li>
-        								</ul>
-        							</div>
-        							<!-- End Toch-prond-Menu -->
-        						</div>
-        						<div class="col-lg-7 col-md-7 col-12">
-        							<h2 class="title-product"> Toch Prond</h2>
-        							<div class="about-toch-prond">
-        								<p>
-        									<span class="rating">
-        										<i class="fa fa-star"></i>
-        										<i class="fa fa-star"></i>
-        										<i class="fa fa-star"></i>
-        										<i class="fa fa-star"></i>
-        										<i class="fa fa-star-o"></i>
-        									</span>
-        									<a href="#">1 reviews</a>
-        									/
-        									<a href="#">Write a review</a>
-        								</p>
-        								<hr />
-        								<p class="short-description">Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nul... </p>
-        								<hr />
-        								<span class="current-price">$100.00</span>
-        								<span class="item-stock">Availability: <span class="text-stock">In Stock</span></span>
-        							</div>
-        							<div class="about-product">
-        								<div class="product-select product-color">
-        									<label><sup>*</sup>Color</label>
-        									<select class="form-control">
-        										<option> --- Please Select --- </option>
-        										<option>Black (+$10.00) </option>
-        										<option>White (+$8.00)</option>
-        										<option>Pink (+$30.00)</option>
-        										<option>Green (+$30.00)</option>
-        									</select>
-        								</div>
-        								<div class="product-select product-Size">
-        									<label><sup>*</sup>Size</label>
-        									<select class="form-control">
-        										<option> --- Please Select --- </option>
-        										<option>Small (+$10.00)</option>
-        										<option>Medium (+$20.00)</option>
-        										<option>Large (+$30.00)</option>
-        										<option>Extra Large (+$35.00)</option>
-        									</select>
-        								</div>
-        								<div class="product-select product-type">
-        									<label><sup>*</sup>Text</label>
-        									<input type="text"  class="form-control" placeholder="Text"/>
-        								</div>
-        								<div class="product-select product-date">
-        									<label><sup>*</sup>Date</label>
-        									<input type="text"  class="form-control" placeholder="2016/02/15"/>
-        								</div>
-        								<div class="product-select product-checkbox">
-        									<label><sup>*</sup>Checkbox</label>
-        									<label><input type="checkbox" /> Checkbox 1  (+$5.00)</label>
-        								</div>
-        								<div class="product-select product-button">
-        									<button type="submit" >
-        										<i class="fa fa-calendar"></i>
-        									</button>
-        								</div>
-        							</div>
-        							<div class="product-quantity">
-        								<span>Qty</span>
-        								<input type="number" placeholder="1" />
-        								<button type="submit" class="toch-button toch-add-cart">Add to Cart</button>
-        								<button type="submit" class="toch-button toch-wishlist">wishlist</button>
-        								<button type="submit" class="toch-button toch-compare">Compare</button>
-        								<hr />
-        								<a href="#"><img src="malias/img/icon/social.png" alt="#" /></a>
-        							</div>
-        						</div>
-        					</div>
-        					<!-- Start Toch-Box -->
-        					<div class="toch-box">
-        						<div class="row">
-        							<div class="col-12">
-        								<!-- Start Toch-Menu -->
-        								<div class="toch-menu">
-        									<ul class="nav">
-        										<li><a class=" active" href="#description" role="tab" data-toggle="tab">Description</a></li>
-        										<li><a href="#reviews" role="tab" data-toggle="tab">Reviews (1)</a></li>
-        									</ul>
-        								</div>
-        								<!-- End Toch-Menu -->
-        								<div class="tab-content toch-description-review">
-        									<!-- Start display-description -->
-        									<div class="tab-pane fade show active" id="description">
-        										<div class="row">
-        											<div class="col-12">
-        												<div class="toch-description">
-        													<p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
-        														Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
-        														Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
-        														Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
-        														Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
-        														Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
-        													</p>
-        												</div>
-        											</div>
-        										</div>
-        									</div>
-        									<!-- End display-description -->
-        									<!-- Start display-reviews -->
-        									<div class="tab-pane fade" id="reviews">
-        										<div class="row">
-        											<div class="col-12">
-        												<div class="toch-reviews">
-        													<div class="toch-table">
-        														<table class="table table-striped table-bordered">
-        															<tbody>
-        																<tr>
-        																	<td><strong>plaza theme</strong></td>
-        																	<td class="text-right"><strong>16/02/2016</strong></td>
-        																</tr>
-        																<tr>
-        																	<td colspan="2">
-        																		<p>It is part of Australia's network of offshore processing centres for irregular migrants who arrive by boat, and also houses New Zealanders facing deportation from Australia.</p>
-        																		<span><i class="fa fa-star"></i></span>
-        																		<span><i class="fa fa-star"></i></span>
-        																		<span><i class="fa fa-star"></i></span>
-        																		<span><i class="fa fa-star"></i></span>
-        																		<span><i class="fa fa-star-o"></i></span>
-        																	</td>
-        																</tr>
-        															</tbody>
-        														</table>
-        													</div>
-        													<div class="toch-review-title">
-        														<h2>Write a review</h2>
-        													</div>
-        													<div class="review-message">
-        														<div class="col-xs-12">
-        															<p><sup>*</sup>Your Name <br>
-        																<input type="text" class="form-control" />
-        															</p>
-        															<p><sup>*</sup>Your Name <br>
-        																<textarea class="form-control"></textarea>
-        															</p>
-        														</div>
-        														<div class="help-block">
-        															<span class="note">Note:</span>
-        															HTML is not translated!
-        														</div>
-        														<div class="get-rating">
-        															<span><sup>*</sup>Rating </span>
-        															Bad
-        															<input type="radio" value="1" name="rating" />
-        															<input type="radio" value="2" name="rating" />
-        															<input type="radio" value="3" name="rating" />
-        															<input type="radio" value="4" name="rating" />
-        															<input type="radio" value="5" name="rating" />
-        															Good
-        														</div>
-        														<div class="buttons clearfix">
-        															<button class="btn btn-primary pull-right">Continue</button>
-        														</div>
-        													</div>
-        												</div>
-        											</div>
-        										</div>
-        									</div>
-        									<!-- End Product = display-reviews -->
-        								</div>
-        							</div>
-        						</div>
-        					</div>
-        					<!-- End Toch-Box -->
-        					<!-- START PRODUCT-AREA -->
-        					<div class="product-area">
-        						<div class="row">
-        							<div class="col-12 col-lg-12">
-        								<!-- Start Product-Menu -->
-        								<div class="product-menu">
-        									<div class="product-title">
-        										<h3 class="title-group-2 gfont-1">Related Products</h3>
-        									</div>
-        								</div>
-        							</div>
-        						</div>
-        						<!-- End Product-Menu -->
-        						<div class="clear"></div>
-        						<!-- Start Product -->
-        						<div class="product carosel-navigation">
-        							<div class="row">
-        								<div class="active-product-carosel">
-        									<!-- Start Single-Product -->
-        									<div class="col-12">
-        										<div class="single-product">
-        											<div class="product-img">
-        												<a href="#">
-        													<img class="primary-img" src="malias/img/product/mediam/3bg.jpg" alt="Product">
-        												</a>
-        											</div>
-        											<div class="product-description">
-        												<h5><a href="#">Various Versions</a></h5>
-        												<div class="price-box">
-        													<span class="price">$80.00</span>
-        												</div>
-        											</div>											
-        										</div>
-        									</div>
-        									<!-- End Single-Product -->
-        									<!-- Start Single-Product -->
-        									<div class="col-12">
-        										<div class="single-product">
-        											<div class="product-img">
-        												<a href="#">
-        													<img class="primary-img" src="malias/img/product/mediam/11.jpg" alt="Product">
-        												</a>
-        											</div>
-        											<div class="product-description">
-        												<h5><a href="#">Trid Palm</a></h5>
-        												<div class="price-box">
-        													<span class="price">$79.00</span>
-        												</div>
-        											</div>											
-        										</div>
-        									</div>
-        									<!-- End Single-Product -->
-        									<!-- Start Single-Product -->
-        									<div class="col-12">
-        										<div class="single-product">
-        											<div class="product-img">
-        												<a href="#">
-        													<img class="primary-img" src="malias/img/product/mediam/1.jpg" alt="Product">
-        												</a>
-        											</div>
-        											<div class="product-description">
-        												<h5><a href="#">Established Fact</a></h5>
-        												<div class="price-box">
-        													<span class="price">$75.00</span>
-        												</div>
-        											</div>											
-        										</div>
-        									</div>
-        									<!-- End Single-Product -->
-        									<!-- Start Single-Product -->
-        									<div class="col-12">
-        										<div class="single-product">
-        											<div class="product-img">
-        												<a href="#">
-        													<img class="primary-img" src="malias/img/product/mediam/2.jpg" alt="Product">
-        												</a>
-        											</div>
-        											<div class="product-description">
-        												<h5><a href="#">Trid Palm</a></h5>
-        												<div class="price-box">
-        													<span class="price">$95.00</span>
-        												</div>
-        											</div>											
-        										</div>
-        									</div>
-        									<!-- End Single-Product -->
-        									<!-- Start Single-Product -->
-        									<div class="col-12">
-        										<div class="single-product">
-        											<div class="product-img">
-        												<a href="#">
-        													<img class="primary-img" src="malias/img/product/mediam/13.jpg" alt="Product">
-        												</a>
-        											</div>
-        											<div class="product-description">
-        												<h5><a href="#">Established Fact</a></h5>
-        												<div class="price-box">
-        													<span class="price">$82.00</span>
-        												</div>
-        											</div>											
-        										</div>
-        									</div>
-        									<!-- End Single-Product -->
-        									<!-- Start Single-Product -->
-        									<div class="col-12">
-        										<div class="single-product">
-        											<div class="product-img">
-        												<a href="#">
-        													<img class="primary-img" src="malias/img/product/mediam/10.jpg" alt="Product">
-        												</a>
-        											</div>
-        											<div class="product-description">
-        												<h5><a href="#">Trid Palm</a></h5>
-        												<div class="price-box">
-        													<span class="price">$99.00</span>
-        												</div>
-        											</div>											
-        										</div>
-        									</div>
-        									<!-- End Single-Product -->
-        									<!-- Start Single-Product -->
-        									<div class="col-12">
-        										<div class="single-product">
-        											<div class="product-img">
-        												<a href="#">
-        													<img class="primary-img" src="malias/img/product/mediam/10bg.jpg" alt="Product">
-        												</a>
-        											</div>
-        											<div class="product-description">
-        												<h5><a href="#">Various Versions</a></h5>
-        												<div class="price-box">
-        													<span class="price">$95.00</span>
-        												</div>
-        											</div>											
-        										</div>
-        									</div>
-        									<!-- End Single-Product -->
-        								</div>
-        							</div>
+        									{{-- <li role="presentation" class=" active"><a href="#display-1" role="tab" data-toggle="tab"><img src="{{asset('malias/img/toch/1.jpg')}}" alt="#" /></a></li>
+        									<li><a href="#display-2" role="tab" data-toggle="tab"><img src="{{asset('malias/img/toch/2.jpg')}}" alt="#" /></a></li>
+        									<li><a href="#display-3"  role="tab" data-toggle="tab"><img src="{{asset('malias/img/toch/3.jpg')}}" alt="#" /></a></li>
+        									<li><a href="#display-4"  role="tab" data-toggle="tab"><img src="{{asset('malias/img/toch/4.jpg')}}" alt="#" /></a></li> --}}
+                                            @foreach($images as $image)
+                                            <li role="presentation" class=" active">
+                                                <a href="#display-1" role="tab" data-toggle="tab">
+                                                    <img src="{{asset($image->path)}}" alt="#" />
+                                                </a>
+                                            </li>
+                                            @endforeach
+                                           {{--  <li><a href="#display-2" role="tab" data-toggle="tab"><img src="{{asset()}}" alt="#" /></a></li>
+                                            <li><a href="#display-3"  role="tab" data-toggle="tab"><img src="{{asset('malias/img/toch/3.jpg')}}" alt="#" /></a></li>
+                                            <li><a href="#display-4"  role="tab" data-toggle="tab"><img src="{{asset('malias/img/toch/4.jpg')}}" alt="#" /></a></li> --}}
+                                        </ul>
+                                    </div>
+                                    
+                                    <!-- End Toch-prond-Menu -->
+                                </div>
 
-        						</div>
-        						<!-- End Product -->
-        					</div>
-        					<!-- END PRODUCT-AREA -->
-        				</div>
-        				<!-- End Toch-Prond-Area -->
-        			</div>
-        		</div>
-        	</div>
-        	<!-- START BRAND-LOGO-AREA -->
-        	<div class="brand-logo-area carosel-navigation">
-        		<div class="container">
-        			<div class="row">
-        				<div class="col-lg-12">
-        					<div class="area-title">
-        						<h3 class="title-group border-red gfont-1">Brand Logo</h3>
-        					</div>
-        				</div>
-        			</div>
-        			<div class="row">
-        				<div class="active-brand-logo">
-        					<div class="col-lg-12">
-        						<div class="single-brand-logo">
-        							<a href="#"><img src="malias/img/brand/1.png" alt=""></a>
-        						</div>
-        					</div>
-        					<div class="col-lg-12">
-        						<div class="single-brand-logo">
-        							<a href="#"><img src="malias/img/brand/2.png" alt=""></a>
-        						</div>
-        					</div>
-        					<div class="col-lg-12">
-        						<div class="single-brand-logo">
-        							<a href="#"><img src="malias/img/brand/3.png" alt=""></a>
-        						</div>
-        					</div>
-        					<div class="col-lg-12">
-        						<div class="single-brand-logo">
-        							<a href="#"><img src="malias/img/brand/4.png" alt=""></a>
-        						</div>
-        					</div>
-        					<div class="col-lg-12">
-        						<div class="single-brand-logo">
-        							<a href="#"><img src="malias/img/brand/5.png" alt=""></a>
-        						</div>
-        					</div>
-        					<div class="col-lg-12">
-        						<div class="single-brand-logo">
-        							<a href="#"><img src="malias/img/brand/6.png" alt=""></a>
-        						</div>
-        					</div>
-        					<div class="col-lg-12">
-        						<div class="single-brand-logo">
-        							<a href="#"><img src="malias/img/brand/1.png" alt=""></a>
-        						</div>
-        					</div>
-        					<div class="col-lg-12">
-        						<div class="single-brand-logo">
-        							<a href="#"><img src="malias/img/brand/2.png" alt=""></a>
-        						</div>
-        					</div>
-        					<div class="col-lg-12">
-        						<div class="single-brand-logo">
-        							<a href="#"><img src="malias/img/brand/3.png" alt=""></a>
-        						</div>
-        					</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<!-- END BRAND-LOGO-AREA -->
-        	<!-- START SUBSCRIBE-AREA -->
-        	<div class="subscribe-area">
-        		<div class="container">
-        			<div class="row align-items-center">
-        				<div class="col-lg-8 col-md-6 col-12">
-        					<label>Sign Up for Our Newsletter:</label>
-        					<div class="subscribe">
-        						<form action="#">
-        							<input type="text" placeholder="Enter Your E-mail">
-        							<button type="submit">Subscribe</button>
-        						</form>
-        					</div>
-        				</div>
-        				<div class="col-lg-4 col-md-6 col-12">
-        					<div class="social-media">
-        						<a href="#"><i class="fa fa-facebook fb"></i></a>
-        						<a href="#"><i class="fa fa-google-plus gp"></i></a>
-        						<a href="#"><i class="fa fa-twitter tt"></i></a>
-        						<a href="#"><i class="fa fa-youtube yt"></i></a>
-        						<a href="#"><i class="fa fa-linkedin li"></i></a>
-        						<a href="#"><i class="fa fa-rss rs"></i></a>
-        					</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>	
-        	<!-- END SUBSCRIBE-AREA -->
-        </section>
-        <!-- END PAGE-CONTENT -->
-        <!-- FOOTER-AREA START -->
-        <footer class="footer-area">
-        	<!-- Footer Start -->
-        	<div class="footer">
-        		<div class="container">
-        			<div class="row">
-        				<div class="col-12 col-md-6 col-lg-3">
-        					<div class="footer-title">
-        						<h5>My Account</h5>
-        					</div>
-        					<nav>
-        						<ul class="footer-content">
-        							<li><a href="my-account.html">My Account</a></li>
-        							<li><a href="#">Order History</a></li>
-        							<li><a href="wishlist">Wish List</a></li>
-        							<li><a href="#">Search Terms</a></li>
-        							<li><a href="#">Returns</a></li>
-        						</ul>
-        					</nav>
-        				</div>
-        				<div class="col-12 col-md-6 col-lg-3">
-        					<div class="footer-title">
-        						<h5>Customer Service</h5>
-        					</div>
-        					<nav>
-        						<ul class="footer-content">
-        							<li><a href="contact.html">Contact Us</a></li>
-        							<li><a href="about.html">About Us</a></li>
-        							<li><a href="#">Delivery Information</a></li>
-        							<li><a href="#">Privacy Policy</a></li>
-        							<li><a href="#">Terms & Conditions</a></li>
-        						</ul>
-        					</nav>
-        				</div>
-        				<div class="col-12 col-md-6 col-lg-3">
-        					<div class="footer-title">
-        						<h5>Payment & Shipping</h5>
-        					</div>
-        					<nav>
-        						<ul class="footer-content">
-        							<li><a href="#">Brands</a></li>
-        							<li><a href="#">Gift Vouchers</a></li>
-        							<li><a href="#">Affiliates</a></li>
-        							<li><a href="shop-list.html">Specials</a></li>
-        							<li><a href="#">Search Terms</a></li>
-        						</ul>
-        					</nav>
-        				</div>
-        				<div class="col-12 col-md-6 col-lg-3">
-        					<div class="footer-title">
-        						<h5>Payment & Shipping</h5>
-        					</div>
-        					<nav>
-        						<ul class="footer-content box-information">
-        							<li>
-        								<i class="fa fa-home"></i><span>Towerthemes, 1234 Stret Lorem, LPA States, Libero</span>
-        							</li>
-        							<li>
-        								<i class="fa fa-envelope-o"></i><p><a href="contact.html">admin@bootexperts.com</a></p>
-        							</li>
-        							<li>
-        								<i class="fa fa-phone"></i>
-        								<span>01234-56789</span> <br> <span> 01234-56789</span>
-        							</li>
-        						</ul>
-        					</nav>
-        				</div>
-        			</div>
-        		</div>				
-        	</div>
-        	<!-- Footer End -->
-        	<!-- Copyright-area Start -->
-        	<div class="copyright-area">
-        		<div class="container">
-        			<div class="row">
-        				<div class="col-lg-12">
-        					<div class="copyright">
-        						<p>Copyright &copy; <a href="http://bootexperts.com/" target="_blank"> BootExpert</a> All rights reserved.</p>
-        						<div class="payment">
-        							<a href="#"><img src="malias/img/payment.png" alt="Payment"></a>
-        						</div>
-        					</div>
-        				</div>
-        			</div>
-        		</div>
-        	</div>
-        	<!-- Copyright-area End -->
-        </footer>
-        <!-- FOOTER-AREA END -->	
-        <!-- QUICKVIEW PRODUCT -->
-        <div id="quickview-wrapper">
-        	<!-- Modal -->
-        	<div class="modal fade" id="productModal" tabindex="-1" role="dialog">
-        		<div class="modal-dialog" role="document">
-        			<div class="modal-content">
-        				<div class="modal-header">
-        					<button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-        				</div>
-        				<div class="modal-body">
-        					<div class="modal-product">
-        						<div class="product-images">
-        							<div class="main-image images">
-        								<img alt="#" src="malias/img/product/quickview-photo.jpg"/>
-        							</div>
-        						</div><!-- .product-images -->
+                                <div class="col-lg-7 col-md-7 col-12">
+                                 <h2 class="title-product"> {{$product->name}}</h2>
+                                 <div class="about-toch-prond">
+                                    <p>
+                                       <span class="rating">
+                                          <i class="fa fa-star"></i>
+                                          <i class="fa fa-star"></i>
+                                          <i class="fa fa-star"></i>
+                                          <i class="fa fa-star"></i>
+                                          <i class="fa fa-star-o"></i>
+                                      </span>
+                                      <a href="#">1 reviews</a>
+                                      /
+                                      <a href="#">Write a review</a>
+                                  </p>
+                                  <hr />
+                                  <p class="short-description">{{$product->content}}</p>
+                                  <hr />
+                                  <span class="current-price">${{$product->sale_price}}</span>
+                                  <span class="item-stock">Trạng thái: 
+                                    @if($product->status == 0)
+                                    <span class="text-stock">
+                                        Đang nhập
+                                    </span>
+                                    @elseif($product->status ==1)
+                                    <span class="text-stock">
+                                        Mở bán
+                                    </span>
+                                    @else
 
-        						<div class="product-info">
-        							<h1>Aenean eu tristique</h1>
-        							<div class="price-box-3">
-        								<hr />
-        								<div class="s-price-box">
-        									<span class="new-price">$160.00</span>
-        									<span class="old-price">$190.00</span>
-        								</div>
-        								<hr />
-        							</div>
-        							<a href="shop.html" class="see-all">See all features</a>
-        							<div class="quick-add-to-cart">
-        								<form method="post" class="cart">
-        									<div class="numbers-row">
-        										<input type="number" id="french-hens" value="3">
-        									</div>
-        									<button class="single_add_to_cart_button" type="submit">Add to cart</button>
-        								</form>
-        							</div>
-        							<div class="quick-desc">
-        								Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero.
-        							</div>
-        							<div class="social-sharing">
-        								<div class="widget widget_socialsharing_widget">
-        									<h3 class="widget-title-modal">Share this product</h3>
-        									<ul class="social-icons">
-        										<li><a target="_blank" title="Facebook" href="#" class="facebook social-icon"><i class="fa fa-facebook"></i></a></li>
-        										<li><a target="_blank" title="Twitter" href="#" class="twitter social-icon"><i class="fa fa-twitter"></i></a></li>
-        										<li><a target="_blank" title="Pinterest" href="#" class="pinterest social-icon"><i class="fa fa-pinterest"></i></a></li>
-        										<li><a target="_blank" title="Google +" href="#" class="gplus social-icon"><i class="fa fa-google-plus"></i></a></li>
-        										<li><a target="_blank" title="LinkedIn" href="#" class="linkedin social-icon"><i class="fa fa-linkedin"></i></a></li>
-        									</ul>
-        								</div>
-        							</div>
-        						</div><!-- .product-info -->
-        					</div><!-- .modal-product -->
-        				</div><!-- .modal-body -->
-        			</div><!-- .modal-content -->
-        		</div><!-- .modal-dialog -->
-        	</div>
-        	<!-- END Modal -->
+                                    <span class="text-stock">
+                                        Hết hàng
+                                    </span>
+                                    @endif
+                                </span>
+                            </div>
+                                    {{-- <div class="about-product">
+                                        <div class="product-select product-color">
+                                         <label><sup>*</sup>Color</label>
+                                         <select class="form-control">
+                                          <option> - Please Select - </option>
+                                          <option>Black (+$10.00) </option>
+                                          <option>White (+$8.00)</option>
+                                          <option>Pink (+$30.00)</option>
+                                          <option>Green (+$30.00)</option>
+                                      </select>
+                                  </div>
+                                  <div class="product-select product-Size">
+                                     <label><sup>*</sup>Size</label>
+                                     <select class="form-control">
+                                      <option>- Please Select - </option>
+                                      <option>Small (+$10.00)</option>
+                                      <option>Medium (+$20.00)</option>
+                                      <option>Large (+$30.00)</option>
+                                      <option>Extra Large (+$35.00)</option>
+                                  </select>
+                              </div> --}}
+                              <div class="product-select product-type">
+                               <label><sup>*</sup>Text</label>
+                               <input type="text"  class="form-control" placeholder="Text"/>
+                           </div>
+                           <div class="product-select product-date">
+                               <label><sup>*</sup>Date</label>
+                               <input type="text"  class="form-control" placeholder="2016/02/15"/>
+                           </div>
+                           <div class="product-select product-checkbox">
+                               <label><sup>*</sup>Checkbox</label>
+                               <label><input type="checkbox" /> Checkbox 1  (+$5.00)</label>
+                           </div>
+                           <div class="product-select product-button">
+                               <button type="submit" >
+                                  <i class="fa fa-calendar"></i>
+                              </button>
+                          </div>
+                      </div>
+                      <div class="product-quantity">
+                        <span>Qty</span>
+                        <input type="number" placeholder="1" />
+                        <button type="submit" class="toch-button toch-add-cart">Add to Cart</button>
+                        <button type="submit" class="toch-button toch-wishlist">wishlist</button>
+                        <button type="submit" class="toch-button toch-compare">Compare</button>
+                        <hr />
+                        <a href="#"><img src="{{asset('malias/img/icon/social.png')}}" alt="#" /></a>
+                    </div>
+                </div>
+            </div>
+            <!-- Start Toch-Box -->
+            <div class="toch-box">
+              <div class="row">
+                 <div class="col-12">
+                    <!-- Start Toch-Menu -->
+                    <div class="toch-menu">
+                       <ul class="nav">
+                          <li><a class=" active" href="#description" role="tab" data-toggle="tab">Description</a></li>
+                          <li><a href="#reviews" role="tab" data-toggle="tab">Reviews (1)</a></li>
+                      </ul>
+                  </div>
+                  <!-- End Toch-Menu -->
+                  <div class="tab-content toch-description-review">
+                   <!-- Start display-description -->
+                   <div class="tab-pane fade show active" id="description">
+                      <div class="row">
+                         <div class="col-12">
+                            <div class="toch-description">
+                               <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
+                                  Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
+                                  Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
+                                  Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
+                                  Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
+                                  Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
+                              </p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+              <!-- End display-description -->
+              <!-- Start display-reviews -->
+              <div class="tab-pane fade" id="reviews">
+                  <div class="row">
+                     <div class="col-12">
+                        <div class="toch-reviews">
+                           <div class="toch-table">
+                              <table class="table table-striped table-bordered">
+                                 <tbody>
+                                    <tr>
+                                       <td><strong>plaza theme</strong></td>
+                                       <td class="text-right"><strong>16/02/2016</strong></td>
+                                   </tr>
+                                   <tr>
+                                       <td colspan="2">
+                                          <p>It is part of Australia's network of offshore processing centres for irregular migrants who arrive by boat, and also houses New Zealanders facing deportation from Australia.</p>
+                                          <span><i class="fa fa-star"></i></span>
+                                          <span><i class="fa fa-star"></i></span>
+                                          <span><i class="fa fa-star"></i></span>
+                                          <span><i class="fa fa-star"></i></span>
+                                          <span><i class="fa fa-star-o"></i></span>
+                                      </td>
+                                  </tr>
+                              </tbody>
+                          </table>
+                      </div>
+                      <div class="toch-review-title">
+                          <h2>Write a review</h2>
+                      </div>
+                      <div class="review-message">
+                          <div class="col-xs-12">
+                             <p><sup>*</sup>Your Name <br>
+                                <input type="text" class="form-control" />
+                            </p>
+                            <p><sup>*</sup>Your Name <br>
+                                <textarea class="form-control"></textarea>
+                            </p>
+                        </div>
+                        <div class="help-block">
+                         <span class="note">Note:</span>
+                         HTML is not translated!
+                     </div>
+                     <div class="get-rating">
+                         <span><sup>*</sup>Rating </span>
+                         Bad
+                         <input type="radio" value="1" name="rating" />
+                         <input type="radio" value="2" name="rating" />
+                         <input type="radio" value="3" name="rating" />
+                         <input type="radio" value="4" name="rating" />
+                         <input type="radio" value="5" name="rating" />
+                         Good
+                     </div>
+                     <div class="buttons clearfix">
+                         <button class="btn btn-primary pull-right">Continue</button>
+                     </div>
+                 </div>
+             </div>
+         </div>
+     </div>
+ </div>
+ <!-- End Product = display-reviews -->
+</div>
+</div>
+</div>
+</div>
+<!-- End Toch-Box -->
+<!-- START PRODUCT-AREA -->
+<div class="product-area">
+  <div class="row">
+     <div class="col-12 col-lg-12">
+        <!-- Start Product-Menu -->
+        <div class="product-menu">
+           <div class="product-title">
+              <h3 class="title-group-2 gfont-1">Related Products</h3>
+          </div>
+      </div>
+  </div>
+</div>
+<!-- End Product-Menu -->
+<div class="clear"></div>
+<!-- Start Product -->
+<div class="product carosel-navigation">
+ <div class="row">
+    <div class="active-product-carosel">
+       <!-- Start Single-Product -->
+       <div class="col-12">
+          <div class="single-product">
+             <div class="product-img">
+                <a href="#">
+                   <img class="primary-img" src="{{asset('malias/img/product/mediam/3bg.jpg')}}" alt="Product">
+               </a>
+           </div>
+           <div class="product-description">
+            <h5><a href="#">Various Versions</a></h5>
+            <div class="price-box">
+               <span class="price">$80.00</span>
+           </div>
+       </div>											
+   </div>
+</div>
+<!-- End Single-Product -->
+<!-- Start Single-Product -->
+<div class="col-12">
+  <div class="single-product">
+     <div class="product-img">
+        <a href="#">
+           <img class="primary-img" src="{{asset('malias/img/product/mediam/11.jpg')}}" alt="Product">
+       </a>
+   </div>
+   <div class="product-description">
+    <h5><a href="#">Trid Palm</a></h5>
+    <div class="price-box">
+       <span class="price">$79.00</span>
+   </div>
+</div>											
+</div>
+</div>
+<!-- End Single-Product -->
+<!-- Start Single-Product -->
+<div class="col-12">
+  <div class="single-product">
+     <div class="product-img">
+        <a href="#">
+           <img class="primary-img" src="{{asset('malias/img/product/mediam/1.jpg')}}" alt="Product">
+       </a>
+   </div>
+   <div class="product-description">
+    <h5><a href="#">Established Fact</a></h5>
+    <div class="price-box">
+       <span class="price">$75.00</span>
+   </div>
+</div>											
+</div>
+</div>
+<!-- End Single-Product -->
+<!-- Start Single-Product -->
+<div class="col-12">
+  <div class="single-product">
+     <div class="product-img">
+        <a href="#">
+           <img class="primary-img" src="{{asset('malias/img/product/mediam/2.jpg')}}" alt="Product">
+       </a>
+   </div>
+   <div class="product-description">
+    <h5><a href="#">Trid Palm</a></h5>
+    <div class="price-box">
+       <span class="price">$95.00</span>
+   </div>
+</div>											
+</div>
+</div>
+<!-- End Single-Product -->
+<!-- Start Single-Product -->
+<div class="col-12">
+  <div class="single-product">
+     <div class="product-img">
+        <a href="#">
+           <img class="primary-img" src="{{asset('malias/img/product/mediam/13.jpg')}}" alt="Product">
+       </a>
+   </div>
+   <div class="product-description">
+    <h5><a href="#">Established Fact</a></h5>
+    <div class="price-box">
+       <span class="price">$82.00</span>
+   </div>
+</div>											
+</div>
+</div>
+<!-- End Single-Product -->
+<!-- Start Single-Product -->
+<div class="col-12">
+  <div class="single-product">
+     <div class="product-img">
+        <a href="#">
+           <img class="primary-img" src="{{asset('malias/img/product/mediam/10.jpg')}}" alt="Product">
+       </a>
+   </div>
+   <div class="product-description">
+    <h5><a href="#">Trid Palm</a></h5>
+    <div class="price-box">
+       <span class="price">$99.00</span>
+   </div>
+</div>											
+</div>
+</div>
+<!-- End Single-Product -->
+<!-- Start Single-Product -->
+<div class="col-12">
+  <div class="single-product">
+     <div class="product-img">
+        <a href="#">
+           <img class="primary-img" src="{{asset('malias/img/product/mediam/10bg.jpg')}}" alt="Product">
+       </a>
+   </div>
+   <div class="product-description">
+    <h5><a href="#">Various Versions</a></h5>
+    <div class="price-box">
+       <span class="price">$95.00</span>
+   </div>
+</div>											
+</div>
+</div>
+<!-- End Single-Product -->
+</div>
+</div>
+
+</div>
+<!-- End Product -->
+</div>
+<!-- END PRODUCT-AREA -->
+</div>
+<!-- End Toch-Prond-Area -->
+</div>
+</div>
+</div>
+<!-- START BRAND-LOGO-AREA -->
+<div class="brand-logo-area carosel-navigation">
+  <div class="container">
+     <div class="row">
+        <div class="col-lg-12">
+           <div class="area-title">
+              <h3 class="title-group border-red gfont-1">Brand Logo</h3>
+          </div>
+      </div>
+  </div>
+  <div class="row">
+    <div class="active-brand-logo">
+       <div class="col-lg-12">
+          <div class="single-brand-logo">
+             <a href="#"><img src="{{asset('malias/img/brand/1.png')}}" alt=""></a>
+         </div>
+     </div>
+     <div class="col-lg-12">
+      <div class="single-brand-logo">
+         <a href="#"><img src="{{asset('malias/img/brand/2.png')}}" alt=""></a>
+     </div>
+ </div>
+ <div class="col-lg-12">
+  <div class="single-brand-logo">
+     <a href="#"><img src="{{asset('malias/img/brand/3.png')}}" alt=""></a>
+ </div>
+</div>
+<div class="col-lg-12">
+  <div class="single-brand-logo">
+     <a href="#"><img src="{{asset('malias/img/brand/4.png')}}" alt=""></a>
+ </div>
+</div>
+<div class="col-lg-12">
+  <div class="single-brand-logo">
+     <a href="#"><img src="{{asset('malias/img/brand/5.png')}}" alt=""></a>
+ </div>
+</div>
+<div class="col-lg-12">
+  <div class="single-brand-logo">
+     <a href="#"><img src="{{asset('malias/img/brand/6.png')}}" alt=""></a>
+ </div>
+</div>
+<div class="col-lg-12">
+  <div class="single-brand-logo">
+     <a href="#"><img src="{{asset('malias/img/brand/1.png')}}" alt=""></a>
+ </div>
+</div>
+<div class="col-lg-12">
+  <div class="single-brand-logo">
+     <a href="#"><img src="{{asset('malias/img/brand/2.png')}}" alt=""></a>
+ </div>
+</div>
+<div class="col-lg-12">
+  <div class="single-brand-logo">
+     <a href="#"><img src="{{asset('malias/img/brand/3.png')}}" alt=""></a>
+ </div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<!-- END BRAND-LOGO-AREA -->
+<!-- START SUBSCRIBE-AREA -->
+<div class="subscribe-area">
+  <div class="container">
+     <div class="row align-items-center">
+        <div class="col-lg-8 col-md-6 col-12">
+           <label>Sign Up for Our Newsletter:</label>
+           <div class="subscribe">
+              <form action="#">
+                 <input type="text" placeholder="Enter Your E-mail">
+                 <button type="submit">Subscribe</button>
+             </form>
+         </div>
+     </div>
+     <div class="col-lg-4 col-md-6 col-12">
+       <div class="social-media">
+          <a href="#"><i class="fa fa-facebook fb"></i></a>
+          <a href="#"><i class="fa fa-google-plus gp"></i></a>
+          <a href="#"><i class="fa fa-twitter tt"></i></a>
+          <a href="#"><i class="fa fa-youtube yt"></i></a>
+          <a href="#"><i class="fa fa-linkedin li"></i></a>
+          <a href="#"><i class="fa fa-rss rs"></i></a>
+      </div>
+  </div>
+</div>
+</div>
+</div>	
+<!-- END SUBSCRIBE-AREA -->
+</section>
+<!-- END PAGE-CONTENT -->
+<!-- FOOTER-AREA START -->
+<footer class="footer-area">
+   <!-- Footer Start -->
+   <div class="footer">
+      <div class="container">
+         <div class="row">
+            <div class="col-12 col-md-6 col-lg-3">
+               <div class="footer-title">
+                  <h5>My Account</h5>
+              </div>
+              <nav>
+                  <ul class="footer-content">
+                     <li><a href="my-account.html">My Account</a></li>
+                     <li><a href="#">Order History</a></li>
+                     <li><a href="wishlist">Wish List</a></li>
+                     <li><a href="#">Search Terms</a></li>
+                     <li><a href="#">Returns</a></li>
+                 </ul>
+             </nav>
+         </div>
+         <div class="col-12 col-md-6 col-lg-3">
+           <div class="footer-title">
+              <h5>Customer Service</h5>
+          </div>
+          <nav>
+              <ul class="footer-content">
+                 <li><a href="contact.html">Contact Us</a></li>
+                 <li><a href="about.html">About Us</a></li>
+                 <li><a href="#">Delivery Information</a></li>
+                 <li><a href="#">Privacy Policy</a></li>
+                 <li><a href="#">Terms & Conditions</a></li>
+             </ul>
+         </nav>
+     </div>
+     <div class="col-12 col-md-6 col-lg-3">
+       <div class="footer-title">
+          <h5>Payment & Shipping</h5>
+      </div>
+      <nav>
+          <ul class="footer-content">
+             <li><a href="#">Brands</a></li>
+             <li><a href="#">Gift Vouchers</a></li>
+             <li><a href="#">Affiliates</a></li>
+             <li><a href="shop-list.html">Specials</a></li>
+             <li><a href="#">Search Terms</a></li>
+         </ul>
+     </nav>
+ </div>
+ <div class="col-12 col-md-6 col-lg-3">
+   <div class="footer-title">
+      <h5>Payment & Shipping</h5>
+  </div>
+  <nav>
+      <ul class="footer-content box-information">
+         <li>
+            <i class="fa fa-home"></i><span>Towerthemes, 1234 Stret Lorem, LPA States, Libero</span>
+        </li>
+        <li>
+            <i class="fa fa-envelope-o"></i><p><a href="contact.html">admin@bootexperts.com</a></p>
+        </li>
+        <li>
+            <i class="fa fa-phone"></i>
+            <span>01234-56789</span> <br> <span> 01234-56789</span>
+        </li>
+    </ul>
+</nav>
+</div>
+</div>
+</div>				
+</div>
+<!-- Footer End -->
+<!-- Copyright-area Start -->
+<div class="copyright-area">
+  <div class="container">
+     <div class="row">
+        <div class="col-lg-12">
+           <div class="copyright">
+              <p>Copyright &copy; <a href="http://bootexperts.com/" target="_blank"> BootExpert</a> All rights reserved.</p>
+              <div class="payment">
+                 <a href="#"><img src="{{asset('malias/img/payment.png')}}" alt="Payment"></a>
+             </div>
+         </div>
+     </div>
+ </div>
+</div>
+</div>
+<!-- Copyright-area End -->
+</footer>
+<!-- FOOTER-AREA END -->	
+<!-- QUICKVIEW PRODUCT -->
+<div id="quickview-wrapper">
+   <!-- Modal -->
+   <div class="modal fade" id="productModal" tabindex="-1" role="dialog">
+      <div class="modal-dialog" role="document">
+         <div class="modal-content">
+            <div class="modal-header">
+               <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+           </div>
+           <div class="modal-body">
+               <div class="modal-product">
+                  <div class="product-images">
+                     <div class="main-image images">
+                        <img alt="#" src="{{asset('malias/img/product/quickview-photo.jpg')}}"/>
+                    </div>
+                </div><!-- .product-images -->
+
+                <div class="product-info">
+                 <h1>Aenean eu tristique</h1>
+                 <div class="price-box-3">
+                    <hr />
+                    <div class="s-price-box">
+                       <span class="new-price">$160.00</span>
+                       <span class="old-price">$190.00</span>
+                   </div>
+                   <hr />
+               </div>
+               <a href="shop.html" class="see-all">See all features</a>
+               <div class="quick-add-to-cart">
+                <form method="post" class="cart">
+                   <div class="numbers-row">
+                      <input type="number" id="french-hens" value="3">
+                  </div>
+                  <button class="single_add_to_cart_button" type="submit">Add to cart</button>
+              </form>
+          </div>
+          <div class="quick-desc">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam fringilla augue nec est tristique auctor. Donec non est at libero.
         </div>
-        <!-- END QUICKVIEW PRODUCT -->
-        
+        <div class="social-sharing">
+            <div class="widget widget_socialsharing_widget">
+               <h3 class="widget-title-modal">Share this product</h3>
+               <ul class="social-icons">
+                  <li><a target="_blank" title="Facebook" href="#" class="facebook social-icon"><i class="fa fa-facebook"></i></a></li>
+                  <li><a target="_blank" title="Twitter" href="#" class="twitter social-icon"><i class="fa fa-twitter"></i></a></li>
+                  <li><a target="_blank" title="Pinterest" href="#" class="pinterest social-icon"><i class="fa fa-pinterest"></i></a></li>
+                  <li><a target="_blank" title="Google +" href="#" class="gplus social-icon"><i class="fa fa-google-plus"></i></a></li>
+                  <li><a target="_blank" title="LinkedIn" href="#" class="linkedin social-icon"><i class="fa fa-linkedin"></i></a></li>
+              </ul>
+          </div>
+      </div>
+  </div><!-- .product-info -->
+</div><!-- .modal-product -->
+</div><!-- .modal-body -->
+</div><!-- .modal-content -->
+</div><!-- .modal-dialog -->
+</div>
+<!-- END Modal -->
+</div>
+<!-- END QUICKVIEW PRODUCT -->
+
 
 		<!-- jquery
 			============================================ -->		
-			<script src="malias/js/vendor/jquery-1.11.3.min.js"></script>
+			<script src="{{asset('malias/js/vendor/jquery-1.11.3.min.js')}}"></script>
 		<!-- popper JS
 			============================================ -->		
-			<script src="malias/js/popper.min.js"></script>
+			<script src="{{asset('malias/js/popper.min.js')}}"></script>
 		<!-- bootstrap JS
 			============================================ -->		
-			<script src="malias/js/bootstrap.min.js"></script>
+			<script src="{{asset('malias/js/bootstrap.min.js')}}"></script>
 		<!-- wow JS
 			============================================ -->		
-			<script src="malias/js/wow.min.js"></script>
+			<script src="{{asset('malias/js/wow.min.js')}}"></script>
 		<!-- meanmenu JS
 			============================================ -->		
-			<script src="malias/js/jquery.meanmenu.js"></script>
+			<script src="{{asset('malias/js/jquery.meanmenu.js')}}"></script>
 		<!-- owl.carousel JS
 			============================================ -->		
-			<script src="malias/js/owl.carousel.min.js"></script>
+			<script src="{{asset('malias/js/owl.carousel.min.js')}}"></script>
 		<!-- scrollUp JS
 			============================================ -->		
-			<script src="malias/js/jquery.scrollUp.min.js"></script>
+			<script src="{{asset('malias/js/jquery.scrollUp.min.js')}}"></script>
         <!-- countdon.min JS
         	============================================ -->		
-        	<script src="malias/js/countdon.min.js"></script>
+        	<script src="{{asset('malias/js/countdon.min.js')}}"></script>
         <!-- jquery-price-slider js
         	============================================ --> 
-        	<script src="malias/js/jquery-price-slider.js"></script>
+        	<script src="{{asset('malias/js/jquery-price-slider.js')}}"></script>
         <!-- Nivo slider js
         	============================================ --> 		
-        	<script src="malias/lib/js/jquery.nivo.slider.js" type="text/javascript"></script>
+        	<script src="{{asset('malias/lib/js/jquery.nivo.slider.js')}}" type="text/javascript"></script>
 		<!-- Image zoom js
 			============================================ --> 		
-			<script src="malias/js/jquery.zoom.min.js"></script>
+			<script src="{{asset('malias/js/jquery.zoom.min.js')}}"></script>
 		<!-- plugins JS
 			============================================ -->		
-			<script src="malias/js/plugins.js"></script>
+			<script src="{{asset('malias/js/plugins.js')}}"></script>
 		<!-- main JS
 			============================================ -->		
-			<script src="malias/js/main.js"></script>
+			<script src="{{asset('malias/js/main.js')}}"></script>
 		</body>
 
 		<!-- Mirrored from demo.hasthemes.com/malias-preview/malias/product-details.html by HTTrack Website Copier/3.x [XR&CO'2014], Tue, 16 Jun 2020 02:27:54 GMT -->

@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Auth;
 // });
 Auth::routes();
 Route::get('/','Frontend\HomeController@index')->name('frontend.index');
-Route::get('/product_detail','Frontend\HomeController@detail')->name('frontend.show'); // chi tiet sp
+Route::get('/product_detail/{id?}','Frontend\HomeController@detail')->name('frontend.show'); // chi tiet sp
 Route::get('/cart','Frontend\HomeController@cart')->name('frontend.cart');
 Route::get('/shop_list','Frontend\HomeController@list')->name('frontend.list');
 
@@ -43,10 +43,18 @@ Route::get('products/create','Backend\ProductController@create')->name('backend.
 // Route::get('products/showCategory/{id?}','Backend\ProductController@showCategory');
 // Route::get('products/showImages/{id?}','Backend\ProductController@showImages');
 Route::post('products/store', 'Backend\ProductController@store')->name('backend.product.store');
-Route::get('products/edit/{id?}', 'Backend\ProductController@edit')->name('backend.product.edit');
+// Route::get('products/edit/{id?}', 'Backend\ProductController@edit')->name('backend.product.edit');
 Route::match(['put','patch'], 'products/{products}', 'Backend\ProductController@update')->name('backend.product.update');
 Route::get('products/show/{id?}','Backend\ProductController@show')->name('backend.product.show');
 Route::get('products/destroy/{id?}','Backend\ProductController@destroy')->name('backend.product.destroy');
+
+
+Route::get('products/edit/{product}', 'Backend\ProductController@edit')->name('backend.product.edit')->middleware('can:update,product');
+// Route::get('products/edit/{product}', function (\App\Models\Product $product){
+	
+// 	return view('backend.product.edit',['product'=> $product]);
+// })->middleware('can:update,product');
+
 
 // Route::get('products/{id?}','Backend\ProductController@show');
 
@@ -57,18 +65,22 @@ Route::post('users/store', 'Backend\UserController@store')->name('backend.user.s
 
 // Route::get('categories/{id?}','Backend\CategoryController@show');
 Route::get('categories','Backend\CategoryController@index')->name('backend.category.index');
-Route::get('categories/showProducts/{id?}','Backend\CategoryController@showProducts')->name('backend.category.showProducts');
+// Route::get('categories/showProducts/{id?}','Backend\CategoryController@showProducts')->name('backend.category.showProducts');
 Route::post('/', 'Backend\CategoryController@store')->name('backend.category.store');
 Route::get('categories/create','Backend\CategoryController@create')->name('backend.category.create');
 Route::get('categories/edit/{id?}', 'Backend\CategoryController@edit')->name('backend.category.edit');
 Route::match(['put','patch'], 'categories/{categories}', 'Backend\CategoryController@update')->name('backend.category.update');
+Route::get('categories/destroy/{id?}','Backend\CategoryController@destroy')->name('backend.category.destroy');
+Route::get('categories/show/{id?}', 'Backend\CategoryController@show')->name('backend.category.show');
 
 
 
 
 
 
-Route::get('orders/showproducts/{id?}' , 'Backend\OrderController@showProducts');
+// Route::get('orders/showproducts/{id?}' , 'Backend\OrderController@showProducts')->name('backend.order.show');
+Route::get('orders','Backend\OrderController@index')->name('backend.order.index');
+Route::get('orders/show/{id?}','Backend\OrderController@show')->name('backend.order.show');
 
 //-------------------------------------------------------------------------------------------------
 

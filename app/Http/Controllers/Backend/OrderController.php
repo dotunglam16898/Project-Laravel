@@ -17,7 +17,13 @@ class OrderController extends Controller
      */
     public function index()
     {
-        //
+        $orders = Order::all();
+        return view('backend.orders.index')->with([
+            'orders' => $orders
+
+
+
+        ]);
     }
 
     /**
@@ -49,24 +55,31 @@ class OrderController extends Controller
      */
     public function show($id)
     {
-        //
-    }
-
-    public function showProducts($id)
-    {
-        $order = Order::find($id);
-        $products= $order->products;
+       $order = Order::find($id);
+       $products= $order->products;
+       
+       
+       return view('backend.orders.show')->with([
         
-        // foreach ($products->products as $product) {
-        //     echo $product . '<br>';
-        // }
-         return view('backend.orders.show')->with([
-            
-            'order' => $order,
-            'products' => $products
+        'order' => $order,
+        'products' => $products
 
-        ]);
-    }
+    ]);
+   }
+
+   public function showProducts($id)
+   {
+    $order = Order::find($id);
+    $products= $order->products;
+    
+    
+    return view('backend.orders.show')->with([
+        
+        'order' => $order,
+        'products' => $products
+
+    ]);
+}
 
     /**
      * Show the form for editing the specified resource.

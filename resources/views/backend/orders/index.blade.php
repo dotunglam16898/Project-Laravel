@@ -3,7 +3,7 @@
 @section('css')
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<title>AdminLTE 3 |Product_Index</title>
+<title>AdminLTE 3 |Order_Index</title>
 <!-- Tell the browser to be responsive to screen width -->
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <!-- Font Awesome -->
@@ -33,12 +33,12 @@
 <div class="container-fluid">
 	<div class="row mb-2">
 		<div class="col-sm-6">
-			<h1 class="m-0 text-dark">Danh sách sản phẩm</h1>
+			<h1 class="m-0 text-dark">Danh sách hóa đơn</h1>
 		</div><!-- /.col -->
 		<div class="col-sm-6">
 			<ol class="breadcrumb float-sm-right">
 				<li class="breadcrumb-item"><a href="#">Home</a></li>
-				<li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
+				<li class="breadcrumb-item"><a href="#">Hóa đơn</a></li>
 				<li class="breadcrumb-item active">Danh sách</li>
 			</ol>
 		</div><!-- /.col -->
@@ -56,7 +56,7 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-header">
-					<h3 class="card-title">Sản phẩm mới nhập</h3>
+					<h3 class="card-title">Hóa đơn mới nhập</h3>
 
 					<div class="card-tools">
 						<div class="input-group input-group-sm" style="width: 150px;">
@@ -74,65 +74,48 @@
 						<thead>
 							<tr>
 								<th>ID</th>
-								<th>Tên sản phẩm</th>
-								<th>Nội dung</th>
-								{{-- <th>Danh mục sản phẩm</th> --}}
-								<th>Giá bán gốc</th>
-								<th>Giá bán ra</th>
-								{{-- <th>Ảnh sản phẩm</th> --}}
+								{{-- <th>User_id</th>
+								<th>Product_id</th> --}}
+								
+								<th>Tổng giá</th>
+								
+								
 								<th>Trạng thái</th>
-								<th>Thông số Kỹ thuật</th>
 								<th>Action</th>
 								{{-- <th>Updated_at</th> --}}
 							</tr>
 						</thead>
 						<tbody>
-							@foreach($products as $product)
+							@foreach($orders as $order)
 							<tr>
-								<td>{{ $product->id }}</td>
-								<td>{{ $product->name }}</td>
-								<td>{{ $product->content }}</td>
-								{{-- <td>{{ $product->category}}</td> --}}
-								<td>{{ $product->origin_price }}</td>
-								<td>{{ $product->sale_price }}</td>
-								{{-- <td>{{$product->images}}</td> --}}
+								<td>{{ $order->id }}</td>
+								{{-- <td>{{ $order->user_id }}</td>
+								<td>{{ $order->product_id }}</td> --}}
 								
-								@if($product->status == 0)
-								<td>Đang nhập</td>
-								@elseif($product->status ==1)
-								<td>Mở bán</td>
-								@else
-								<td>Hết hàng</td>
+								<td>{{ $order->total_price }}</td>
+								<td>{{ $order->status }}</td>
+								
+								
 
 
 
 
-								@endif
-								<td>
-									@foreach (json_decode($product->config) as $config)
-									<b>{{ $config->key }}</b>: {{ $config->value }}<br />
-									@endforeach
-								</td>
+								
 
 								
 								<td>
-									@can('update',$product)
-									<a href="{{route('backend.product.show',$product->id)}}"  class="btn btn-success">Detail</a>
-									<a href="{{route('backend.product.edit',$product->id)}}"><button class="btn btn-primary">Edit</button></a>
-									<a href="{{route('backend.product.destroy',$product->id)}}"  class="btn btn-danger">Delete</a>
+									
+									<a href="{{route('backend.order.show',$order->id)}}"  class="btn btn-success">Detail</a>
+									<a href=""><button class="btn btn-primary">Edit</button></a>
+									<a href=""  class="btn btn-danger">Delete</a>
 
 
-									@endcan
+									
 
-									@cannot('update',$product)
-									<a href="{{route('backend.product.show',$product->id)}}"  class="btn btn-success">Detail</a>
-
-									@endcannot
 									
 
 								</td>
-								{{-- <td><span class="tag tag-success">Approved</span></td> --}}
-								{{-- <td>{{ $product->updated_at }}</td> --}}
+								
 								
 							</tr>
 
@@ -147,7 +130,7 @@
 	</div>
 	<!-- /.row (main row) -->
 </div><!-- /.container-fluid -->
-{!! $products->links() !!}
+
 
 @endsection
 

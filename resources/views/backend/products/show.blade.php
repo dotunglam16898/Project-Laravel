@@ -108,6 +108,20 @@
 					<h5>-Danh mục:{{$categories->name}}
 
 					</h5>
+					<br>
+					
+
+					<h5>-Thông số kỹ thuật:
+						<br>
+						{{-- @foreach ($product->config as $property)
+						<b>{{ $property['key'] }}</b>: {{ $property['value'] }}<br />
+						@endforeach --}}
+						@foreach (json_decode($product->config) as $config)
+						<b>{{ $config->key }}</b>: {{ $config->value }}<br />
+						@endforeach
+
+
+					</h5>
 					
 					
 

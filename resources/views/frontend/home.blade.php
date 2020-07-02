@@ -355,25 +355,31 @@
 					<div class="row">
 						<div class="col-lg-12">
 							<div class="area-title">
-								<h3 class="title-group border-red gfont-1">Hot Deals</h3>
+								<h3 class="title-group border-red gfont-1">Sản phẩm mới</h3>
 							</div>
 						</div>
 					</div>
 					<div class="carosel-circle style-2 row">
 						<div class="active-hot-deals-style-2">
 							<!-- Start Single-hot-deals -->
+							@foreach($productss as $product)
 							<div class="col-12">
 								<div class="single-hot-deals">
 									<div class="hot-deals-photo">
-										<a href="#"><img src="malias/img/hot-deals/1.jpg" alt="Product"></a>
+										{{-- <a href="#"><img src="malias/img/hot-deals/1.jpg" alt="Product"></a> --}}
+										@foreach($images as $image)
+										<a href="#"><img src="{{asset($image->path)}}" alt="Product"></a>
+										{{-- <a href="#"><img src="malias/img/hot-deals/1.jpg" alt="Product"></a> --}}
+										@endforeach
 									</div>
 									<div class="count-down">
 										<div class="timer">
 											<div data-countdown="2017/12/31"></div>
 										</div> 
 									</div>
+									
 									<div class="hot-deals-text">
-										<h5><a href="#" class="name-group">Various Versions</a></h5>
+										<h5><a href="#" class="name-group">{{$product->name}}</a></h5>
 										<span class="rating"><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star"></i><i class="fa fa-star-o"></i></span>
 										<div class="price-box">
 											<span class="price gfont-2">$99.00</span>
@@ -387,11 +393,13 @@
 											</div>
 										</div>
 									</div>
+									
 								</div>
 							</div>
+							@endforeach
 							<!-- End Single-hot-deals -->
 							<!-- Start Single-hot-deals -->
-							<div class="col-12">
+							{{-- <div class="col-12">
 								<div class="single-hot-deals">
 									<div class="hot-deals-photo">
 										<a href="#"><img src="malias/img/hot-deals/2.jpg" alt="Product"></a>
@@ -417,10 +425,10 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<!-- End Single-hot-deals -->
 							<!-- Start Single-hot-deals -->
-							<div class="col-12">
+							{{-- <div class="col-12">
 								<div class="single-hot-deals">
 									<div class="hot-deals-photo">
 										<a href="#"><img src="malias/img/hot-deals/3.jpg" alt="Product"></a>
@@ -446,10 +454,10 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<!-- End Single-hot-deals -->
 							<!-- Start Single-hot-deals -->
-							<div class="col-12">
+{{-- 							<div class="col-12">
 								<div class="single-hot-deals">
 									<div class="hot-deals-photo">
 										<a href="#"><img src="malias/img/hot-deals/3.jpg" alt="Product"></a>
@@ -475,10 +483,10 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<!-- End Single-hot-deals -->
 							<!-- Start Single-hot-deals -->
-							<div class="col-12">
+							{{-- <div class="col-12">
 								<div class="single-hot-deals">
 									<div class="hot-deals-photo">
 										<a href="#"><img src="malias/img/hot-deals/3.jpg" alt="Product"></a>
@@ -504,10 +512,10 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<!-- End Single-hot-deals -->
 							<!-- Start Single-hot-deals -->
-							<div class="col-12">
+							{{-- <div class="col-12">
 								<div class="single-hot-deals">
 									<div class="hot-deals-photo">
 										<a href="#"><img src="malias/img/hot-deals/3.jpg" alt="Product"></a>
@@ -533,7 +541,7 @@
 										</div>
 									</div>
 								</div>
-							</div>
+							</div> --}}
 							<!-- End Single-hot-deals -->
 						</div>
 					</div>

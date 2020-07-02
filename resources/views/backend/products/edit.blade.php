@@ -146,6 +146,30 @@
 							<label for="exampleInputEmail1">Slug</label>
 							<input type="text" name="slug" class="form-control" id="" placeholder="" value="{{$product->slug}}">
 						</div>
+
+						<div class="form-group">
+							<label for="config">Thông số kỹ thuật</label>
+							<div class="row">
+								<div class="col-md-2">
+									Key:
+								</div>
+								<div class="col-md-4">
+									Value:
+								</div>
+							</div>
+							@for ($i=0; $i <= 4; $i++)
+							<div class="row">
+								<div class="col-md-2">
+									<input type="text" name="config[{{ $i }}][key]" class="form-control" 
+									value="{{ $product->config[$i]['key'] ?? '' }}">
+								</div>
+								<div class="col-md-4">
+									<input type="text" name="config[{{ $i }}][value]" class="form-control" 
+									value="{{ $product->config[$i]['value'] ?? '' }}">
+								</div>
+							</div>
+							@endfor
+						</div>
 						
 					</div>
 					<!-- /.card-body -->
@@ -153,7 +177,7 @@
 					<div class="card-footer">
 						{{-- <button type="submit" class="btn btn-default">Huỷ bỏ</button> --}}
 						<a href="{{ route('backend.product.index') }}" class="btn btn-default">Huỷ bỏ</a>
-						<button type="submit" class="btn btn-sucess">Update</button>
+						<button type="submit" class="btn btn-success">Update</button>
 					</div>
 				</form>
 			</div>

@@ -79,10 +79,17 @@ class CategoryController extends Controller
     {
 
         $category= Category::find($id);
-        // dd($category);
-        foreach($category->products as $products){ // Lay content cua tat ca cac ban ghi
-            echo $products->content. '<br>';
-        }
+        $products = $category->products;
+        // dd($products);
+
+        return view('backend.categories.show')->with([
+            'category' => $category,
+            'products' => $products
+
+
+
+
+        ]);
     }
 
     public function showProducts($id){
@@ -157,6 +164,8 @@ class CategoryController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $category = Category::find($id);
+        $category->delete();
+        return redirect()->route('backend.category.index');
     }
 }
