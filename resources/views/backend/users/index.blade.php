@@ -35,6 +35,13 @@
 	<div class="row mb-2">
 		<div class="col-sm-6">
 			<h1 class="m-0 text-dark">Danh sách người dùng</h1>
+			@if(session()->has('success'))
+			<div class="alert alert-success"><span >{{session()->get('success')}}</span></div>
+			@endif
+
+			@if(session()->has('error'))
+			<span style="color: red">{{session()->get('error')}}</span>
+			@endif
 		</div><!-- /.col -->
 		<div class="col-sm-6">
 			<ol class="breadcrumb float-sm-right">
@@ -57,6 +64,7 @@
 			<div class="card">
 				<div class="card-header">
 					<h3 class="card-title">Danh sách người dùng</h3>
+
 
 					<div class="card-tools">
 						<div class="input-group input-group-sm" style="width: 150px;">
@@ -91,15 +99,31 @@
 								<td>{{ $user->email }}</td>
 								<td>{{ $user->name }}</td>
 								<td>{{ $user->address }}</td>
-								<td>{{ $user->phone }}</td>
+								<td>+84{{ $user->phone }}</td>
 								{{-- <td>{{ $user->role }}</td> --}}
 								{{-- <td><span class="tag tag-success">Approved</span></td> --}}
 								<td>
-									<a href=""  class="btn btn-success">Detail</a>
-									<a href=""><button class="btn btn-primary">Edit</button></a>
+									{{-- <a href=""  class="btn btn-success">Detail</a>
+									<a href="{{route('backend.user.edit',$user->id)}}"><button class="btn btn-primary">Edit</button></a>
 									
 									
-									<a href=""  class="btn btn-danger">Delete</a>
+									<a href="{{route('backend.user.destroy',$user->id)}}"  class="btn btn-danger">Delete</a> --}}
+
+									<a href="{{route('backend.user.show',$user->id)}}"  >
+										<button  class="btn btn-success" type="submit"><i class="fa fa-btn fa-eye"></i></button>
+
+									</a>
+
+
+									<a href="{{route('backend.user.edit',$user->id)}}">
+										<button class="btn btn-primary" type="submit"><i class="fa fa-btn fa-edit"></i></button>
+										
+									</a>
+									<a href="{{route('backend.user.destroy',$user->id)}}" >
+										<button class="btn btn-danger" type="submit"><i class="fa fa-btn fa-trash-alt"></i></button>
+
+									</a>
+
 								</td>
 							</tr>
 

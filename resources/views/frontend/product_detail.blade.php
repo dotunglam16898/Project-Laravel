@@ -365,8 +365,9 @@
         						<div class="category-menu-list">
         							<ul>
         								<!-- Single menu start -->
+                                        @foreach($categoriess as $category)
         								<li class="arrow-plus active">
-        									<a href="#">Cameras & Photography</a>
+        									<a href="#">{{$category->name}}</a>
         									<!--  MEGA MENU START -->
         									<div class="cat-left-drop-menu">
         										<div class="cat-left-drop-menu-left">
@@ -416,9 +417,10 @@
         									</div>
         									<!-- MEGA MENU END -->
         								</li>
+                                        @endforeach
         								<!-- Single menu end -->
         								<!-- Single menu start -->
-        								<li class="arrow-plus">
+        								{{-- <li class="arrow-plus">
         									<a href="#">Tv & Audio</a>
         									<!--  MEGA MENU START -->
         									<div class="cat-left-drop-menu">
@@ -521,7 +523,7 @@
         									<a class="rx-show">
         										close menu <span class="cat-thumb  fa fa-minus"></span>
         									</a>
-        								</li>
+        								</li> --}}
         								<!-- MENU ACCORDION END -->
         							</ul>
         						</div>
@@ -753,17 +755,17 @@
 
         							<div class="tab-content">
         								<!-- Product = display-1-1 -->
-                                        @foreach($images as $image)
+                                        {{-- @foreach($images as $image) --}}
                                         <div role="tabpanel" class="tab-pane fade show active" id="display-1">
                                            <div class="row">
                                               <div class="col-12">
                                                  <div class="toch-photo">
-                                                    <a href="#"><img src="{{asset($image->path)}}" alt="#" /></a>
+                                                    <a href="#"><img src="{{$images}}" alt="#" /></a>
                                                 </div>
                                             </div>
                                         </div>
                                     </div>
-                                    @endforeach
+                                    {{-- @endforeach --}}
                                     <!-- End Product = display-1-1 -->
                                     <!-- Start Product = display-1-2 -->
         								{{-- <div role="tabpanel" class="tab-pane fade" id="display-2">
@@ -839,27 +841,27 @@
                                       /
                                       <a href="#">Write a review</a>
                                   </p>
-                                  <hr />
-                                  <p class="short-description">{{$product->content}}</p>
-                                  <hr />
-                                  <span class="current-price">${{$product->sale_price}}</span>
-                                  <span class="item-stock">Trạng thái: 
-                                    @if($product->status == 0)
-                                    <span class="text-stock">
-                                        Đang nhập
-                                    </span>
-                                    @elseif($product->status ==1)
-                                    <span class="text-stock">
-                                        Mở bán
-                                    </span>
-                                    @else
-
-                                    <span class="text-stock">
-                                        Hết hàng
-                                    </span>
-                                    @endif
+                              {{-- <hr />
+                              <p class="short-description">{{$product->content}}</p>
+                              <hr /> --}}
+                              <span class="current-price">${{number_format($product->sale_price)}}</span>
+                              <span class="item-stock">Trạng thái: 
+                                @if($product->status == 0)
+                                <span class="text-stock">
+                                    Đang nhập
                                 </span>
-                            </div>
+                                @elseif($product->status ==1)
+                                <span class="text-stock">
+                                    Mở bán
+                                </span>
+                                @else
+
+                                <span class="text-stock">
+                                    Hết hàng
+                                </span>
+                                @endif
+                            </span>
+                        </div>
                                     {{-- <div class="about-product">
                                         <div class="product-select product-color">
                                          <label><sup>*</sup>Color</label>
@@ -889,7 +891,21 @@
                                <label><sup>*</sup>Date</label>
                                <input type="text"  class="form-control" placeholder="2016/02/15"/>
                            </div>
-                           <div class="product-select product-checkbox">
+                           <div class="product-select product-type">
+                            <label><h5><sup>*</sup>Thông số kỹ thuật:</h5><br>
+
+                                @foreach (json_decode($product->config) as $config)
+                                <b>{{ $config->key }}</b>: {{ $config->value }}<br />
+                                @endforeach
+
+                            </label>
+                        </div>
+
+                        <div class="product-select product-date">
+                            <label><h5><sup>*</sup>Ưu đãi:</h5><br>
+                                <p>Giảm ngay: <span style="color: red">{{$product->discount_percent}}%</span> khi mua sản phẩm và được tặng kèm nhiều quà tặng hấp dẫn khác</p>
+                            </div>
+                           {{-- <div class="product-select product-checkbox">
                                <label><sup>*</sup>Checkbox</label>
                                <label><input type="checkbox" /> Checkbox 1  (+$5.00)</label>
                            </div>
@@ -897,7 +913,7 @@
                                <button type="submit" >
                                   <i class="fa fa-calendar"></i>
                               </button>
-                          </div>
+                          </div> --}}
                       </div>
                       <div class="product-quantity">
                         <span>Qty</span>
@@ -917,7 +933,7 @@
                     <!-- Start Toch-Menu -->
                     <div class="toch-menu">
                        <ul class="nav">
-                          <li><a class=" active" href="#description" role="tab" data-toggle="tab">Description</a></li>
+                          <li><a class=" active" href="#description" role="tab" data-toggle="tab">Giới thiệu sản phẩm</a></li>
                           <li><a href="#reviews" role="tab" data-toggle="tab">Reviews (1)</a></li>
                       </ul>
                   </div>
@@ -928,20 +944,16 @@
                       <div class="row">
                          <div class="col-12">
                             <div class="toch-description">
-                               <p>Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
-                                  Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
-                                  Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
-                                  Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
-                                  Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
-                                  Nunc facilisis sagittis ullamcorper. Proin lectus ipsum, gravida et mattis vulputate, tristique ut lectus. Sed et lorem nunc. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean eleifend laoreet congue. Vivamus adipiscing nisl ut dolor dignissim semper. Nulla luctus malesuada tincidunt.
-                              </p>
-                          </div>
-                      </div>
-                  </div>
-              </div>
-              <!-- End display-description -->
-              <!-- Start display-reviews -->
-              <div class="tab-pane fade" id="reviews">
+                               <h4><b>Đặc điểm nổi bật:</b></h4> 
+                               <p>{{$product->content}}
+                               </p>
+                           </div>
+                       </div>
+                   </div>
+               </div>
+               <!-- End display-description -->
+               <!-- Start display-reviews -->
+               <div class="tab-pane fade" id="reviews">
                   <div class="row">
                      <div class="col-12">
                         <div class="toch-reviews">

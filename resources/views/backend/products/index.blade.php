@@ -34,6 +34,14 @@
 	<div class="row mb-2">
 		<div class="col-sm-6">
 			<h1 class="m-0 text-dark">Danh sách sản phẩm</h1>
+
+			@if(session()->has('success'))
+			<div class="alert alert-success"><span >{{session()->get('success')}}</span></div>
+			@endif
+
+			@if(session()->has('error'))
+			<span style="color: red">{{session()->get('error')}}</span>
+			@endif
 		</div><!-- /.col -->
 		<div class="col-sm-6">
 			<ol class="breadcrumb float-sm-right">
@@ -75,13 +83,13 @@
 							<tr>
 								<th>ID</th>
 								<th>Tên sản phẩm</th>
-								<th>Nội dung</th>
+								{{-- <th>Nội dung</th> --}}
 								{{-- <th>Danh mục sản phẩm</th> --}}
 								<th>Giá bán gốc</th>
 								<th>Giá bán ra</th>
 								{{-- <th>Ảnh sản phẩm</th> --}}
 								<th>Trạng thái</th>
-								<th>Thông số Kỹ thuật</th>
+								{{-- <th>Thông số Kỹ thuật</th> --}}
 								<th>Action</th>
 								{{-- <th>Updated_at</th> --}}
 							</tr>
@@ -91,10 +99,10 @@
 							<tr>
 								<td>{{ $product->id }}</td>
 								<td>{{ $product->name }}</td>
-								<td>{{ $product->content }}</td>
+								{{-- <td>{!! $product->content !!}</td> --}}
 								{{-- <td>{{ $product->category}}</td> --}}
-								<td>{{ $product->origin_price }}</td>
-								<td>{{ $product->sale_price }}</td>
+								<td>{{ number_format($product->origin_price) }}</td>
+								<td>{{ number_format($product->sale_price) }}</td>
 								{{-- <td>{{$product->images}}</td> --}}
 								
 								@if($product->status == 0)
@@ -108,24 +116,41 @@
 
 
 								@endif
-								<td>
+								{{-- <td>
 									@foreach (json_decode($product->config) as $config)
 									<b>{{ $config->key }}</b>: {{ $config->value }}<br />
 									@endforeach
-								</td>
+
+									
+								</td> --}}
 
 								
 								<td>
 									@can('update',$product)
-									<a href="{{route('backend.product.show',$product->id)}}"  class="btn btn-success">Detail</a>
-									<a href="{{route('backend.product.edit',$product->id)}}"><button class="btn btn-primary">Edit</button></a>
-									<a href="{{route('backend.product.destroy',$product->id)}}"  class="btn btn-danger">Delete</a>
+									<a href="{{route('backend.product.show',$product->id)}}"  >
+										<button  class="btn btn-success" type="submit"><i class="fa fa-btn fa-eye"></i></button>
+
+									</a>
+
+
+									<a href="{{route('backend.product.edit',$product->id)}}">
+										<button class="btn btn-primary" type="submit"><i class="fa fa-btn fa-edit"></i></button>
+										
+									</a>
+									<a href="{{route('backend.product.destroy',$product->id)}}" >
+										<button class="btn btn-danger" type="submit"><i class="fa fa-btn fa-trash-alt"></i></button>
+
+									</a>
 
 
 									@endcan
 
 									@cannot('update',$product)
-									<a href="{{route('backend.product.show',$product->id)}}"  class="btn btn-success">Detail</a>
+									{{-- <a href="{{route('backend.product.show',$product->id)}}"  class="btn btn-success">Detail</a> --}}
+									<a href="{{route('backend.product.show',$product->id)}}"  >
+										<button  class="btn btn-success" type="submit"><i class="fa fa-btn fa-eye"></i></button>
+
+									</a>
 
 									@endcannot
 									

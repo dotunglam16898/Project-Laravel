@@ -74,10 +74,12 @@
 						<thead>
 							<tr>
 								<th>ID</th>
-								{{-- <th>User_id</th>
-								<th>Product_id</th> --}}
+								<th>Tên khách hàng</th>
+								{{-- <th>Product_id</th> --}}
 								
-								<th>Tổng giá</th>
+								{{-- <th>Giá tiền</th> --}}
+								<th>Địa chỉ giao hàng</th>
+								<th>Số điện thoại </th>
 								
 								
 								<th>Trạng thái</th>
@@ -89,11 +91,18 @@
 							@foreach($orders as $order)
 							<tr>
 								<td>{{ $order->id }}</td>
-								{{-- <td>{{ $order->user_id }}</td>
-								<td>{{ $order->product_id }}</td> --}}
+								<td> {{ $order->name }}</td>
+								{{-- <td>{{ $order->product_id }}</td> --}}
 								
-								<td>{{ $order->total_price }}</td>
-								<td>{{ $order->status }}</td>
+								{{-- <td>{{number_format($order->total_price)  }}</td> --}}
+								<td>{{$order->address}}</td>
+								<td>+84{{$order->phone}}</td>
+
+								@if($order->status == 1)
+								<td>Đang vận chuyển</td>
+								@else
+								<td>Đã vận chuyển</td>
+								@endif
 								
 								
 
@@ -101,20 +110,73 @@
 
 
 								
-
+								@if($order->status == 1)
 								
 								<td>
-									
-									<a href="{{route('backend.order.show',$order->id)}}"  class="btn btn-success">Detail</a>
-									<a href=""><button class="btn btn-primary">Edit</button></a>
-									<a href=""  class="btn btn-danger">Delete</a>
 
+									
+
+									
+
+									
+
+
+
+									<a href="{{route('backend.order.show',$order->id)}}"  >
+										<button  class="btn btn-success" type="submit"><i class="fa fa-btn fa-eye"></i></button>
+
+									</a>
+
+									<a href="{{route('backend.order.delete',$order->id)}}" >
+										<button class="btn btn-danger" type="submit"><i class="fa fa-btn fa-trash-alt"></i></button>
+
+									</a>
+
+									<a href="{{route('backend.order.complete',$order->id)}}" >
+										<button class="btn btn-primary" type="submit"><i class="fa fa-btn fa-check"></i></button>
+
+									</a>
+
+									
+									
+									
+									{{-- <a href="{{route('backend.order.show',$order->id)}}"  >
+										<button  class="btn btn-success" type="submit"><i class="fa fa-btn fa-eye"></i></button>
+
+									</a>
+									
+									
+									<a href="{{route('backend.order.delete',$order->id)}}" >
+										<button class="btn btn-danger" type="submit"><i class="fa fa-btn fa-trash-alt"></i></button>
+
+									</a>
+
+									<a href="{{route('backend.order.complete',$order->id)}}" >
+										<button class="btn btn-primary" type="submit"><i class="fa fa-btn fa-check"></i></button>
+
+									</a>
+									--}}
 
 									
 
 									
 
 								</td>
+								@else
+								<td>
+									<a href="{{route('backend.order.show',$order->id)}}"  >
+										<button  class="btn btn-success" type="submit"><i class="fa fa-btn fa-eye"></i></button>
+
+									</a>
+									
+									<a href="{{route('backend.order.delete',$order->id)}}" >
+										<button class="btn btn-danger" type="submit"><i class="fa fa-btn fa-trash-alt"></i></button>
+
+									</a>
+								</td>
+								
+								@endif
+
 								
 								
 							</tr>

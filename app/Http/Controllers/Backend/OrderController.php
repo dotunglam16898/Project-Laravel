@@ -7,6 +7,7 @@ use App\Models\Order;
 use App\Models\Product;
 use App\User;
 use Illuminate\Http\Request;
+use App\Models\OrderProduct;
 
 class OrderController extends Controller
 {
@@ -17,7 +18,7 @@ class OrderController extends Controller
      */
     public function index()
     {
-        $orders = Order::all();
+        $orders = Order::orderBy('created_at','desc')->get();
         return view('backend.orders.index')->with([
             'orders' => $orders
 
@@ -34,6 +35,16 @@ class OrderController extends Controller
     public function create()
     {
         //
+    }
+
+    public function complete($id)
+    {
+        $order = Order::find($id);
+
+        $order->status = 2 ;
+        $order->save();
+        return redirect()->route('backend.order.index');
+
     }
 
     /**
@@ -56,13 +67,30 @@ class OrderController extends Controller
     public function show($id)
     {
        $order = Order::find($id);
+       $orders_products = OrderProduct::where('order_id', $id)->get();
+
+       // dd($orders_products);
+       // foreach ($orders_products as $order_product) {
+           
+       // }
+       // dd($order_product);
        $products= $order->products;
+       // foreach ($products as $product) {
+           
+       // }
+       // dd($products);
+       $users = $order->users;
+       // dd($users);
        
        
        return view('backend.orders.show')->with([
         
         'order' => $order,
-        'products' => $products
+        'products' => $products,
+        'users' => $users,
+        'orders_products' => $orders_products,
+        // 'product' => $product
+
 
     ]);
    }
@@ -112,6 +140,9 @@ class OrderController extends Controller
      */
     public function destroy($id)
     {
-        //
+        // dd(1);
+        $order = Order::find($id);
+        $order->delete();
+        return redirect()->route('backend.order.index');
     }
 }

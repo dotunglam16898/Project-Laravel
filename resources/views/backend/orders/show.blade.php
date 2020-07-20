@@ -33,13 +33,13 @@
 <div class="container-fluid">
 	<div class="row mb-2">
 		<div class="col-sm-6">
-			<h1 class="m-0 text-dark">Danh sách hóa đơn</h1>
+			<h1 class="m-0 text-dark">Chi tiết hóa đơn</h1>
 		</div><!-- /.col -->
 		<div class="col-sm-6">
 			<ol class="breadcrumb float-sm-right">
 				<li class="breadcrumb-item"><a href="#">Home</a></li>
 				<li class="breadcrumb-item"><a href="#">Hóa đơn</a></li>
-				<li class="breadcrumb-item active">Danh sách</li>
+				<li class="breadcrumb-item active">Chi tiết</li>
 			</ol>
 		</div><!-- /.col -->
 	</div><!-- /.row -->
@@ -56,7 +56,7 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-header">
-					<h3 class="card-title">Hóa đơn mới nhập</h3>
+					<h3 class="card-title">Chi tiết</h3>
 
 					<div class="card-tools">
 						<div class="input-group input-group-sm" style="width: 150px;">
@@ -76,26 +76,49 @@
 								<th>ID</th>
 								<th>Sản phẩm trong đơn hàng</th>
 								
+								
+
+								<th>Số lượng</th>
+								<th>Tổng tiền</th>
+								
 								<th>Thời gian</th>
-								<th>Mô tả</th>
-								{{-- <th>Updated_at</th> --}}
+								
+								
 							</tr>
 						</thead>
 						<tbody>
-							
+							@foreach($orders_products as $order)
 							<tr>
 								<td>{{ $order->id }}</td>
 								<td>
-									@foreach($products as $product) 
-									{{$product->name}}<br>
-									@endforeach
+									
+										
+										{{$order->name}}
+										
+									
+									
 								</td>
+
+								
+								<td>{{$order->quantity}}</td>
+								
+
+								
+
+								
+								<td>{{number_format($order->price)}}</td>
+								
+
+								
+
+
+
+								
+								
 								
 								<td>{{ $order->updated_at }}</td>
 
-								<td>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-									tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-								</td>
+								
 								
 								
 								
@@ -106,10 +129,43 @@
 								
 								
 							</tr>
+							@endforeach
+
+							
 
 							
 						</tbody>
 					</table>
+
+
+
+					{{-- <h5><b>-Sản phẩm trong đơn hàng : </b>
+						<br>
+						@foreach($products as $product) 
+						{{$product->name}}<br>
+						@endforeach
+					</h5>
+					<br>
+
+					<h5><b>-Số lượng: </b>
+						<br>
+						@foreach($products as $product) 
+						{{$product->name}}: 
+						@foreach($orders_products as $order_product)
+						@if($order_product->order_id == $order->id)
+						{{$order_product->quantity}}
+
+
+						@endif
+
+
+						@endforeach<br>
+						@endforeach
+
+
+
+
+					</h5> --}}
 				</div>
 				<!-- /.card-body -->
 			</div>

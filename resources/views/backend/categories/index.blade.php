@@ -34,6 +34,13 @@
 	<div class="row mb-2">
 		<div class="col-sm-6">
 			<h1 class="m-0 text-dark">Danh sách danh mục</h1>
+			@if(session()->has('success'))
+			<div class="alert alert-success"><span >{{session()->get('success')}}</span></div>
+			@endif
+
+			@if(session()->has('error'))
+			<span style="color: red">{{session()->get('error')}}</span>
+			@endif
 		</div><!-- /.col -->
 		<div class="col-sm-6">
 			<ol class="breadcrumb float-sm-right">
@@ -57,6 +64,7 @@
 			<div class="card">
 				<div class="card-header">
 					<h3 class="card-title">Danh mục mới nhập</h3>
+
 
 					<div class="card-tools">
 						<div class="input-group input-group-sm" style="width: 150px;">
@@ -93,11 +101,26 @@
 								{{-- <td><span class="tag tag-success">Approved</span></td> --}}
 								<td>{{ $category->updated_at }}</td>
 								<td>
-									<a href="{{route('backend.category.show',$category->id)}}"  class="btn btn-success">Detail</a>
+									{{-- <a href="{{route('backend.category.show',$category->id)}}"  class="btn btn-success">Detail</a>
 									<a href="{{route('backend.category.edit',$category->id)}}"><button class="btn btn-primary">Edit</button></a>
 									
 									
-									<a href="{{route('backend.category.destroy',$category->id)}}"  class="btn btn-danger">Delete</a>
+									<a href="{{route('backend.category.destroy',$category->id)}}"  class="btn btn-danger">Delete</a> --}}
+									<a href="{{route('backend.category.show',$category->id)}}"  >
+										<button  class="btn btn-success" type="submit"><i class="fa fa-btn fa-eye"></i></button>
+
+									</a>
+
+
+									<a href="{{route('backend.category.edit',$category->id)}}">
+										<button class="btn btn-primary" type="submit"><i class="fa fa-btn fa-edit"></i></button>
+										
+									</a>
+									<a href="{{route('backend.category.destroy',$category->id)}}" >
+										<button class="btn btn-danger" type="submit"><i class="fa fa-btn fa-trash-alt"></i></button>
+
+									</a>
+
 								</td>
 								
 							</tr>

@@ -4,6 +4,11 @@ namespace App\Http\Controllers\Backend;
  use Illuminate\Support\Facades\Auth;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use App\Models\Category;
+use App\User;
+use App\Models\Product;
+use App\Models\Order;
+
 
 
 class DashboardController extends Controller
@@ -18,7 +23,23 @@ class DashboardController extends Controller
         // $role= Auth::user()->role;
 
         // if ($role == 1) {
-            return view('backend.dashboard');
+        $products = Product::all()->count();
+        $users = User::all()->count();
+        $categories = Category::all()->count();
+        $orders = Order::all()->count();
+
+        $productss = Product::orderBy('created_at','desc')->take(5)->get();
+
+        // dd($productss);
+            return view('backend.dashboard')->with([
+                'products' => $products,
+                'users' => $users,
+                'categories' => $categories,
+                'orders' => $orders,
+                'productss' => $productss
+
+
+            ]);
         // }else{
         //     return view('frontend.home');
         // }

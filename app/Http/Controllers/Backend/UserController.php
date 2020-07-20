@@ -20,7 +20,7 @@ class UserController extends Controller
 
         // $users = User::get();
         // $users = User::orderBy('created_at','asc')->get();
-        $users = User::paginate(3);
+        $users = User::orderBy('created_at','desc')->paginate(3);
         return view('backend.users.index')->with([
             'users' =>$users
 
@@ -67,9 +67,9 @@ class UserController extends Controller
             'name' => 'required|min:6|max:255',
             'email' => 'required|email',
             'address' =>'required',
-            'phone' => 'required|numeric|min:8|max:11',
+            // 'phone' => 'required|numeric|min:8|max:11',
             'role' => 'required',
-            'password' => 'required|min:6|max:15|confirmed',
+            // 'password' => 'required|min:6|max:15|confirmed',
             // 'repassword' => 'required|password_confirmation'
 
 
@@ -86,7 +86,13 @@ class UserController extends Controller
         $user->role = $request->get('role');
         $user->password = $request->get('password');
         // $user->user_id = Auth::user()->id;
-        $user->save();
+        $save = $user->save();
+        $save = 1;
+        if($save){
+            $request->session()->flash('success','Tạo mới thành công');
+        }else{
+            $request->session()->flash('error','Tạo mới thất bại');
+        }
 
         return redirect()->route('backend.user.index');
     }
@@ -99,7 +105,8 @@ class UserController extends Controller
      */
     public function show($id)
     {
-        //
+        $users = User::find($id);
+        return view('backend.user.edit');
     }
 
     public function showProducts($id)
@@ -125,7 +132,14 @@ class UserController extends Controller
      */
     public function edit($id)
     {
-        //
+
+        $user = User::find($id);
+        return view('backend.users.edit')->with([
+            'user'=>$user
+
+
+        ]);
+        
     }
 
     /**
@@ -137,7 +151,22 @@ class UserController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $user = User::find($id);
+
+        $user->name= $request->get('name');
+        $user->email = $request->get('email');
+        $user->phone = $request->get('phone');
+        $user->address = $request->get('address');
+        // $user->password = $request->get('password');
+        $user->role = $request->get('role');
+        $save=$user->save();
+        $save = 1;
+        if($save){
+            $request->session()->flash('success','Cập nhật thành công');
+        }else{
+            $request->session()->flash('error','Cập nhật thất bại');
+        }
+        return redirect()->route('backend.user.index');
     }
 
     /**
@@ -148,6 +177,8 @@ class UserController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $user= User::find($id);
+        $user->delete();
+        return redirect()->route('backend.user.index');
     }
 }

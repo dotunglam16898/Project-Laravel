@@ -33,13 +33,13 @@
 <div class="container-fluid">
 	<div class="row mb-2">
 		<div class="col-sm-6">
-			<h1 class="m-0 text-dark">Danh sách user</h1>
+			<h1 class="m-0 text-dark">Chi tiết người dùng</h1>
 		</div><!-- /.col -->
 		<div class="col-sm-6">
 			<ol class="breadcrumb float-sm-right">
-				<li class="breadcrumb-item"><a href="#">Home</a></li>
-				<li class="breadcrumb-item"><a href="#">Sản phẩm</a></li>
-				<li class="breadcrumb-item active">Danh sách</li>
+				<li class="breadcrumb-item"><a href="#">Trang chủ</a></li>
+				<li class="breadcrumb-item"><a href="#"></a>Người dùng</li>
+				<li class="breadcrumb-item active">chi tiết</li>
 			</ol>
 		</div><!-- /.col -->
 	</div><!-- /.row -->
@@ -56,7 +56,7 @@
 		<div class="col-12">
 			<div class="card">
 				<div class="card-header">
-					<h3 class="card-title">Sản phẩm mới nhập</h3>
+					<h3 class="card-title">Chi tiết người dùng</h3>
 
 					<div class="card-tools">
 						<div class="input-group input-group-sm" style="width: 150px;">
@@ -74,10 +74,13 @@
 						<thead>
 							<tr>
 								<th>ID</th>
-								<th>Tên User</th>
+								<th>Tên Người dùng</th>
+								<th>Email</th>
 								
-								<th>Address</th>
-								<th>Sản phẩm đã mua</th>
+								<th>Địa chỉ</th>
+								<th>Số điện thoại</th>
+								<th>Sản phẩm tạo ra</th>
+								<th>Quyền truy cập</th>
 								{{-- <th>Updated_at</th> --}}
 							</tr>
 						</thead>
@@ -86,8 +89,10 @@
 							<tr>
 								<td>{{ $user->id }}</td>
 								<td>{{ $user->name }}</td>
+								<td>{{$user->email}}</td>
 
 								<td>{{ $user->address }}</td>
+								<td>+84{{$user->phone}}</td>
 								
 								
 								
@@ -96,6 +101,12 @@
 									{{$product->name}}<br>
 									@endforeach
 								</td>
+
+								@if($user->role == 1)
+								<td>Admin</td>
+								@else
+								<td>User</td>
+								@endif
 
 
 

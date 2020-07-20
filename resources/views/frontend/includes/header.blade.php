@@ -26,27 +26,17 @@
 						</li>
 					</ul>
 					<!-- End Currency -->
-					<p class="welcome-msg">Default welcome msg!</p>
+					<p class="welcome-msg">Chào mừng bạn đã đến với E-shop!</p>
 				</div>
 				<!-- Start Top-Link -->
 				<div class="top-link">
 					<ul class="link">
-						{{-- @if(Auth::check())
-						<li><a href=""><i class="fa fa-user"></i>Xin Chào {{Auth::user()->name}}</a></li>
-
-						<li>
-							<a href="{{route('logout.index')}}"><i class="fa fa-user"></i>Logout</a>
-						</li>
-						@else
-						<li><a href="{{route('login.form')}}"><i class="fa fa-unlock-alt"></i></a>Login</li>
-
-
-						@endif --}}
+						
 						@if(Auth::check())
 						<li>
 							<form  action="{{ route('logout') }}" method="POST" >
 								@csrf
-								<button type="submit" class="btn btn-primary">LogOut</button>
+								<button type="submit" class="btn btn-primary">Đăng xuất</button>
 							</form>
 						</li>
 						<li><a href="my-account.html"><i class="fa fa-user"></i> Xin chào {{Auth::user()->name}}</a></li>
@@ -56,7 +46,7 @@
 						
 						@else
 						{{-- <li><a href="{{route('login.form')}}"><i class="fa fa-unlock-alt"></i></a>Login</li> --}}
-						<li><a href="{{route('login.form')}}"><i class="fa fa-unlock-alt"></i> Login</a></li>
+						<li><a href="{{route('login.form')}}"><i class="fa fa-unlock-alt"></i> Đăng nhập</a></li>
 						<li><a href="my-account.html"><i class="fa fa-user"></i> My Account</a></li>
 						<li><a href="wishlist.html"><i class="fa fa-heart"></i> Wish List (0)</a></li>
 						<li><a href="checkout.html"><i class="fa fa-share"></i> Checkout</a></li>
@@ -84,8 +74,8 @@
 						<div class="support-content">
 							<i class="fa fa-clock-o"></i>
 							<div class="support-text">
-								<h1 class="zero gfont-1">working time</h1>
-								<p>Mon- Sun: 8.00 - 18.00</p>
+								<h1 class="zero gfont-1">Giờ làm việc</h1>
+								<p>T2- CN: 8.00 - 18.00</p>
 							</div>
 						</div>
 					</div>
@@ -96,8 +86,8 @@
 					<div class="single-support">
 						<i class="fa fa-truck"></i>
 						<div class="support-text">
-							<h1 class="zero gfont-1">Free shipping</h1>
-							<p>On order over $199</p>
+							<h1 class="zero gfont-1">Miễn phí vận chuyển</h1>
+							<p>Với hóa đơn trên 100.000.000.đ</p>
 						</div>
 					</div>
 				</div>
@@ -107,8 +97,8 @@
 					<div class="single-support">
 						<i class="fa fa-money"></i>
 						<div class="support-text">
-							<h1 class="zero gfont-1">Money back 100%</h1>
-							<p>Within 30 Days after delivery</p>
+							<h1 class="zero gfont-1">Hoàn tiền 100%</h1>
+							<p>Trong vòng 30 ngày sau khi giao hàng</p>
 						</div>
 					</div>
 				</div>
@@ -118,8 +108,8 @@
 					<div class="single-support">
 						<i class="fa fa-phone-square"></i>
 						<div class="support-text">
-							<h1 class="zero gfont-1">Phone: 0123456789</h1>
-							<p>Order Online Now !</p>
+							<h1 class="zero gfont-1">SĐT: 0829911698</h1>
+							<p>Đặt hàng ngay !</p>
 						</div>
 					</div>
 				</div>
@@ -139,7 +129,7 @@
 					<div class="search-by-category">
 						<div class="search-container">
 							<select>
-								<option class="all-cate">All Categories</option>
+								<option class="all-cate">Danh mục</option>
 								<optgroup  class="cate-item-head" label="Cameras & Photography">
 									<option class="cate-item-title">Handbags</option>
 									<option class="c-item">Blouses And Shirts</option>
@@ -159,8 +149,9 @@
 							</select>
 						</div>
 						<div class="header-search">
-							<form action="#">
-								<input type="text" placeholder="Search">
+							<form action="{{route('frontend.search')}}" method="post">
+								@csrf
+								<input type="text" placeholder="Search" name="name">
 								<button type="submit"><i class="fa fa-search"></i></button>
 							</form>
 						</div>
@@ -168,54 +159,47 @@
 					<div class="top-cart">
 						<ul>
 							<li>
-								<a href="cart.html">
+								<a href="{{route('frontend.cart')}}">
 									<span class="cart-icon"><i class="fa fa-shopping-cart"></i></span>
 									<span class="cart-total">
-										<span class="cart-title">shopping cart</span>
-										<span class="cart-item">2 item(s)- </span>
-										<span class="top-cart-price">$365.00</span>
+										<span class="cart-title">Giỏ hàng</span>
+										<span class="cart-item">{{Cart::count()}} sản phẩm  </span>
+										{{-- <span class="top-cart-price">$365.00</span> --}}
 									</span>
 								</a>
 								<div class="mini-cart-content">
+									@foreach($items as $item)
 									<div class="cart-img-details">
+										@foreach($images as $image)
+										@if($image->product_id == $item->id)
 										<div class="cart-img-photo">
-											<a href="#"><img src="malias/img/product/total-cart.jpg" alt="#"></a>
+											<a href="#"><img src="{{$image->path}}" alt="#"></a>
 										</div>
+										@endif
+
+										@endforeach
 										<div class="cart-img-content">
-											<a href="#"><h4>Prod Aldults</h4></a>
+											<a href="#"><h4>{{$item->name}}</h4></a>
 											<span>
-												<strong class="text-right">1 x</strong>
-												<strong class="cart-price text-right">$180.00</strong>
+												<strong class="text-right">{{$item->qty}} x</strong>
+												<strong class="cart-price text-right">{{number_format($item->price)}}.VNĐ</strong>
 											</span>
 										</div>
 										<div class="pro-del">
 											<a href="#"><i class="fa fa-times"></i></a>
 										</div>
 									</div>
+									@endforeach
 									<div class="clear"></div>
-									<div class="cart-img-details">
-										<div class="cart-img-photo">
-											<a href="#"><img src="malias/img/product/total-cart2.jpg" alt="#"></a>
-										</div>
-										<div class="cart-img-content">
-											<a href="#"><h4>Fact Prone</h4></a>
-											<span>
-												<strong class="text-right">1 x</strong>
-												<strong class="cart-price text-right">$185.00</strong>
-											</span>
-										</div>
-										<div class="pro-del">
-											<a href="#"><i class="fa fa-times"></i></a>
-										</div>
-									</div>
+									
 									<div class="cart-inner-bottom">
 										<span class="total">
-											Total:
-											<span class="amount">$550.00</span>
+											Tổng:
+											<span class="amount">{{$total}}.VNĐ</span>
 										</span>
 										<span class="cart-button-top">
-											<a href="cart.html">View Cart</a>
-											<a href="checkout.html">Checkout</a>
+											<a href="{{route('frontend.cart')}}">Xem giỏ </a>
+											<a href="">Đặt hàng</a>
 										</span>
 									</div>
 								</div>
@@ -237,28 +221,28 @@
 				<div class="mainmenu d-lg-block d-none">
 					<nav>
 						<ul>
-							<li><a href="index.html">Home</a>
+							<li><a href="{{route('frontend.index')}}">Trang chủ</a>
 								<ul>
 									<li><a href="index.html">Home Versions 1</a></li>
 									<li><a href="index-2.html">Home Versions 2</a></li>
 								</ul>
 							</li>
-							<li><a href="about.html">About Us</a></li>
-							<li class="hot"><a href="shop.html">Bestseller Products</a></li>
-							<li class="new"><a href="shop-list.html">New Products</a></li>
-							<li><a href="#">Pages</a>
+							<li><a href="about.html">Về chúng tôi</a></li>
+							{{-- <li class="hot"><a href="shop.html">Sản phẩm bán chạy</a></li> --}}
+							<li class="new"><a href="{{route('frontend.new')}}">Sản phẩm mới</a></li>
+							<li><a href="#">Tiện ích khác</a>
 								<ul>
-									<li><a href="cart.html">Cart</a></li>
-									<li><a href="checkout.html">Checkout</a></li>
-									<li><a href="account.html">Create Account</a></li>
-									<li><a href="my-account.html">My Account</a></li>
-									<li><a href="product-details.html">Product details</a></li>
-									<li><a href="shop.html">Shop Grid View</a></li>
+									<li><a href="cart.html">Giỏ hàng</a></li>
+									<li><a href="checkout.html">Đặt hàng</a></li>
+									<li><a href="account.html">Tạo tài khoản</a></li>
+									<li><a href="my-account.html">Tài khoản của tôi</a></li>
+									<li><a href="product-details.html">Chi tiết sản phẩm</a></li>
+									{{-- <li><a href="shop.html">Shop Grid View</a></li>
 									<li><a href="shop-list.html">Shop List View</a></li>
-									<li><a href="wishlist.html">Wish List</a></li>
+									<li><a href="wishlist.html">Wish List</a></li> --}}
 								</ul>
 							</li>
-							<li><a href="contact.html">Contact Us</a></li>
+							<li><a href="{{route('frontend.contact')}}">Liên hệ</a></li>
 						</ul>
 					</nav>
 				</div>

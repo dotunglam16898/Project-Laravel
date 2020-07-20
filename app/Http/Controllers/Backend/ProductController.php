@@ -27,10 +27,18 @@ class ProductController extends Controller
 
         // $product = Product::get();
         // $product = Product::find($id);
-        $product = Product::paginate(10);
+        $product = Product::orderBy('created_at','desc')->paginate(10);
+        // foreach($product as $products){
+        // // dd(json_decode($products->config));
+        //     // return $config = json_decode($products->config);
+        // }
+
+        // $config = json_decode($product->config);
+     // dd($config);
         // $images = $product->images;
         return view('backend.products.index')->with([
             'products' => $product,
+            // 'config'=> $config
             // 'images' => $images
 
         ]);
@@ -61,56 +69,65 @@ class ProductController extends Controller
     public function store(Request $request) //StoreProductRequest
     {
 
-        // $validatedData= $request->validate([ // C1
-        //     'name' => 'required|min:6|max:255',
-        //     'origin_price' => 'required|numeric',
-        //     'sale_price' => 'required|numeric',
-        //     'category_id' =>'required',
-        //     'status' => 'required',
-        //     'content' => 'required',
-        //     // 'images'=>'file'
+        $validatedData= $request->validate([ // C1
+            'name' => 'required|min:6|max:255',
+            'origin_price' => 'required|numeric',
+            'sale_price' => 'required|numeric',
+            'category_id' =>'required',
+            'status' => 'required',
+            'content' => 'required',
+            // 'images'=>'file'
 
 
 
-        // ]);
-
-
+        ]);
 
 
         
-
-        // if ($request->hasFile('image')){
-        //     // $path = Storage::putFile('images',$request->file('image')); C1
-        //     // $path = Storage::disk()
-        //     $file = $request->file('image');
-
-        //     $path = $file->store('images',['disk' => 'public']);
-        //     dd('ok');
-        // }else{
-        //     dd('khong co file');
-        // }
-        // $product = Product::create($request->except(['_token']));
-        // $product = Product::create($request->all());
+        // $category = new Category();
+        
+        $keys = $request->input('key');
 
 
-        // dd($request->config);
+        $values = $request->input('value');
+         // dd($values);
 
-
-
-
+        $configs = array_combine($keys, $values);
+    // dd($configs);
         $product = new Product();
+        $product->config = json_encode($configs);
         $product->name = $request->get('name');
-        $product->config = json_encode($request->get('config',null));
-        // dd($product->config);
         $product->slug = \Illuminate\Support\Str::slug($request->get('name'));
         $product->category_id = $request->get('category_id');
-        $product->origin_price = $request->get('origin_price');
+        $product->origin_price =$request->get('origin_price');
         $product->sale_price = $request->get('sale_price');
+        $product->description = $request->get('description');
+        // dd($product->sale_price);
         // $product->->discount_percent = $request->get('discount_percent',null);
         $product->content = $request->get('content');
         $product->status = $request->get('status');
         $product->user_id = Auth::user()->id;
-        $product->save();
+        $save= $product->save();
+
+
+
+
+
+
+
+
+
+
+
+        // dd($product->config);
+        
+
+        $save = 1;
+        if($save){
+            $request->session()->flash('success','Tạo mới thành công');
+        }else{
+            $request->session()->flash('error','Tạo mới thất bại');
+        }
 
         if($request->hasFile('images')){
             $images = $request->file('images');
@@ -125,6 +142,7 @@ class ProductController extends Controller
 
 
                 $product_image= Storage::disk('public')->putFileAs('products',$image,$namefile);
+                // dd($product_image);
 
                 $url = Storage::url($product_image);
                  // dd($url);
@@ -135,16 +153,10 @@ class ProductController extends Controller
 
 
                 ]);
+                // dd($image);
             }
 
-            // $image = new Image();
-            // $image->name = $namefile;
-            // $image->path = $url;
-            // // $image->product_id = 1;
-            // $image->save();
-            // dd('ok');
 
-            // dd($image);
         }else{
             dd('ko co file');
         }
@@ -166,6 +178,11 @@ class ProductController extends Controller
     public function show($id)
     {
         $product = Product::find($id);
+        $configs = $product->config;
+        $arr_config = json_decode($configs,true);
+        // dd($arr_config);
+        
+        // dd($configs);
         $categories = $product ->category;
         // dd($categories);
         $images = $product->images;
@@ -173,7 +190,8 @@ class ProductController extends Controller
         return view('backend.products.show')->with([
             'product' => $product,
             'images' => $images,
-            'categories' => $categories
+            'categories' => $categories,
+            'arr_config' => $arr_config
         ]);
         
     }
@@ -198,29 +216,9 @@ class ProductController extends Controller
         ]);
     }
 
-    // public function showCategory($id)
-    // {
-    //     $product-> = Product::find($id);
-    //     // dd($product->->category->name);
-    //     foreach ($product->->category as $product->s ) {
-    //     }
 
-    // }
 
-    // public function showProducts($id)
-    // {
-    //     $user = User::find($id);
-    //     // foreach ($user->products as $users ) {
-    //     //     echo $users->name. '<br>';
-    //     // }
-    //     $product->s = $user->products;
-    //     return view('backend.users.showProducts')->with([
 
-    //         'user' => $user,
-    //         'products' => $product->s
-
-    //     ]);
-    // }
 
     /**
      * Show the form for editing the specified resource.
@@ -228,26 +226,44 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Product $product)
+    public function edit($id) //Product $product
     {
-        $categories = Category::get();
-        // return view('backend.products.create')->with([
-        //     'categories' => $categories
-        // ]);
+        // $categories = Category::get();
+
+        // $categories = Category::find($id);
+
         $user = Auth::user();
      // dd($user);
-     // $product = Product::find($id);
-        if ($user->can('update',$product)) {
-         // dd('Yes');
-            return view('backend.products.edit')->with([
-                'product' => $product,
-                'categories' => $categories
+        $product = Product::find($id);
+        $products = Product::get();
+        $categories = $product->category;
+        // dd($categories);
+        $images = $product->images;
 
-            ]);
 
-        }else{
-            dd('Khong');
-        }
+        // dd($images);
+        // if ($user->can('update',$product)) {
+        //  // dd('Yes');
+        //     return view('backend.products.edit')->with([
+        //         'product' => $product,
+        //         'categories' => $categories,
+        //         'products' => $products
+
+        //     ]);
+
+        // }else{
+        //     dd('Khong');
+        // }
+
+
+        return view('backend.products.edit')->with([
+            'product' => $product,
+            'categories' => $categories,
+            'images'=> $images,
+            'products' => $products
+                // 'products' => $products
+
+        ]);
 
     //  $categories = Category::get();
     //  return view('backend.products.edit')->with([
@@ -264,81 +280,180 @@ class ProductController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
+
+    public function delete_image($id){
+        // dd(1);
+        // dd($id);
+
+        $image = Image::findOrfail($id);
+        // dd($image->product_id);
+        $product = Product::find($image->product_id);
+        // dd($image->name);
+        Storage::disk('public')->delete($image->name);
+        $image->delete();
+        // dd($images);
+        // dd($product);
+        // $productImage = $product->images;
+        // dd($productImage);
+        // $productImage->delete($id);
+        // if(Storage::disk('public')->exists($images)){
+        //     dd(1);
+
+        // }
+
+        return redirect()->route('backend.product.edit', $product->id);
+
+
+
+
+
+
+
+
+    }
+
+
+
+
     public function update(Request $request, $id)
     {
 
 
-        // $validatedData= $request->validate([ // C1
-        //     'name' => 'required|min:6|max:255',
-        //     'origin_price' => 'required|numeric',
-        //     'sale_price' => 'required|numeric',
-        //     'category_id' =>'required',
-        //     'status' => 'required',
-        //     'content' => 'required',
+        $validatedData= $request->validate([ // C1
+            'name' => 'required|min:6|max:255',
+            'origin_price' => 'required|numeric',
+            'sale_price' => 'required|numeric',
+            'category_id' =>'required',
+            'status' => 'required',
+            'content' => 'required',
+            'key' => 'required',
+            'value' => 'required'
 
 
 
 
-        // ]);
-        $product = Product::find($id);
-        if (Gate::allows('update-product',$product)) {
+
+        ]);
+        // $product = Product::find($id);
+        // if (Gate::allows('update-product',$product)) {
             // dd('yes');
 
             // $product_obj = new Product();
             // $product_obj->name = $request->get('name');
             // $product_obj->save();
             // return redirect()->route('backend.product.index');
+        $keys = $request->input('key');
 
-            $name = $request->get('name');
-            $slug = $request->get('slug');
-            $category_id = $request->get('category_id');
-            $origin_price = $request->get('origin_price');
-            $sale_price = $request->get('sale_price');
-            $content = $request->get('content');
-            $status = $request->get('status');
-            $user_id = $request->get('user_id');
+
+        $values = $request->input('value');
+         // dd($values);
+
+        $configs = array_combine($keys, $values);
+    // dd($configs);
+        
+
+        $name = $request->get('name');
+        $slug = $request->get('slug');
+        $category_id = $request->get('category_id');
+        $origin_price = $request->get('origin_price');
+        $sale_price = $request->get('sale_price');
+        $content = $request->get('content');
+        $status = $request->get('status');
+        $user_id = $request->get('user_id');
+        $description = $request->get('description');
             // $config = $request->get('config');
-            
+
 
         // Cập nhật
-            $product = Product::find($id);
-            $product->name = $name;
-            $product->config = json_encode($request->get('config',null));
-            $product->category_id = $category_id;
-            $product->origin_price = $origin_price;
-            $product->slug = $slug;
-            $product->sale_price= $sale_price;
-            $product->content = $content;
-            $product->status = $status;
-            $product->user_id = Auth::user()->id;
-            $product->save();
-            return redirect()->route('backend.product.index');
+        $product = Product::find($id);
+        $product->config = json_encode($configs);
+        $product->name = $name;
+        // $product->config = json_encode($request->get('config',null));
+        $product->category_id = $category_id;
+        $product->origin_price = $origin_price;
+        $product->slug = $slug;
+        $product->sale_price= $sale_price;
+        $product->content = $content;
+        $product->description = $description;
+        $product->status = $status;
+        $product->user_id = Auth::user()->id;
+        $save= $product->save();
+
+
+
+        $save = 1;
+        if($save){
+            $request->session()->flash('success','Cập nhật thành công');
         }else{
-            dd('NO');
+            $request->session()->flash('error','Cập nhật thất bại');
         }
 
 
-        // $name = $request->get('name');
-        // $slug = $request->get('slug');
-        // $category_id = $request->get('category_id');
-        // $origin_price = $request->get('origin_price');
-        // $sale_price = $request->get('sale_price');
-        // $content = $request->get('content');
-        // $status = $request->get('status');
-        // $user_id = $request->get('user_id');
+        // if($request->hasFile('images')){
+        //     $images = $request->file('images');
+        //     foreach ($images as $image) {
+        //         $namefile = $image->getClientOriginalName();
+        //         // $file = $image->store('image');
+        //         // $path= 'storage/products/'.$namefile;
+        //         $url = Storage::url($namefile);
+        //         Storage::disk('public')->putFileAs('products',$image,$namefile);
+        //         $product->images = $url;
 
-        // // Cập nhật
-        // $product = Product::find($id);
-        // $product->name = $name;
-        // $product->category_id = $category_id;
-        // $product->origin_price = $origin_price;
-        // $product->slug = $slug;
-        // $product->sale_price= $sale_price;
-        // $product->content = $content;
-        // $product->status = $status;
-        // $product->user_id = Auth::user()->id;
-        // $product->save();
-        // return redirect()->route('backend.product.index');
+        //     }
+
+        // }else{
+        //     dd('khong có file');
+        // }
+        $images = $product->images;
+        // foreach ($images as $image) {
+        //   dd();
+
+
+        // }
+
+
+        if($request->hasFile('images')){
+            $images = $request->file('images');
+            foreach ($images as $image) {
+
+                // $file = $image->store('image');
+                $namefile= $image->getClientOriginalName();
+                // $path= 'storage/products/'.$namefile;
+                // $url = Storage::url($namefile);
+                // $url = $path;
+
+
+
+
+
+                $product_image= Storage::disk('public')->putFileAs('products',$image,$namefile);
+
+                $url = Storage::url($product_image);
+                 // dd($url);
+
+                $image = $product->images()->create([
+                    'name' => $namefile,
+                    'path' => $url,
+                    
+
+
+                ]);
+
+                
+
+            }
+
+
+        // }else{
+        //     dd('ko co file');
+        // }
+            
+
+
+
+
+        }
+        return redirect()->route('backend.product.index');
     }
 
     /**

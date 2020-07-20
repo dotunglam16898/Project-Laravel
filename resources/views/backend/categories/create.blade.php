@@ -76,7 +76,7 @@
 						@endif
 						<div class="form-group">
 							<label for="exampleInputEmail1">Tên danh mục</label>
-							<input type="text" name="name" class="form-control" id="" placeholder="Tên người dùng">
+							<input type="text" name="name" class="form-control" id="" placeholder="Tên danh mục">
 						</div>
 						<div class="form-group">
 							<label for="exampleInputEmail1">Parent_id</label>

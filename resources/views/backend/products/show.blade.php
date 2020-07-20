@@ -63,18 +63,21 @@
 				
 
 
-				<div class="card-body">
-					<h5>-Tên sản phẩm : {{$product->name}}</h5>
+				<div class="card-body ">
+					<h5><b>-Tên sản phẩm : </b>{{$product->name}}</h5>
 					<br>
-					<h5>-Slug:{{$product->slug}}</h5>
+					<h5><b>-Slug:</b>{{$product->slug}}</h5>
 					<br>
-					<h5>-Nội dung: {{htmlspecialchars_decode($product->content)}}</h5>
+					<h5><b>-Mô tả sản phẩm :</b> {{ $product->description }}</h5>
 					<br>
-					<h5>-Giá ban đầu: {{$product->origin_price}}</h5>
+					<h5><b>-Đặc điểm nổi bật :</b> {!! $product->content !!}</h5>
 					<br>
-					<h5>-Giá bán ra: {{$product->sale_price}}</h5>
+
+					<h5><b>-Giá ban đầu:</b> {{number_format($product->origin_price)}}.VNĐ</h5>
 					<br>
-					<h5>-Trạng thái: 
+					<h5><b>-Giá bán ra: </b>{{number_format($product->sale_price)}}.VNĐ</h5>
+					<br>
+					<h5><b>-Trạng thái:</b> 
 						@if($product->status == 0)
 						<p>Đang nhập</p>
 						@elseif($product->status ==1)
@@ -89,9 +92,9 @@
 
 					</h5>
 					<br>
-					<h5>-Phần trăm giảm giá: {{ $product->discount_percent}}</h5>
+					<h5><b>-Phần trăm giảm giá:</b> {{ $product->discount_percent}}%</h5>
 					<br>
-					<h5>-Ảnh sản phẩm:
+					<h5><b>-Ảnh sản phẩm:</b>
 						@foreach($images as $image)
 						<div>
 							<img src="{{asset($image->path)}}" width="20%" height="20%"><br>
@@ -105,7 +108,7 @@
 					
 					
 					
-					<h5>-Danh mục:{{$categories->name}}
+					<h5><b>-Danh mục:</b>{{$categories->name}}
 
 					</h5>
 					<br>
@@ -113,12 +116,13 @@
 
 					<h5>-Thông số kỹ thuật:
 						<br>
-						{{-- @foreach ($product->config as $property)
-						<b>{{ $property['key'] }}</b>: {{ $property['value'] }}<br />
-						@endforeach --}}
-						@foreach (json_decode($product->config) as $config)
-						<b>{{ $config->key }}</b>: {{ $config->value }}<br />
+						
+						@foreach ($arr_config as $key => $value)
+						<b>{{ $key }}</b>: {{ $value }}<br />
+
 						@endforeach
+
+
 
 
 					</h5>
@@ -127,9 +131,9 @@
 
 					
 					<br>
-					<h5>Created_at: {{$product->created_at}}</h5>
+					<h5><b>-Created_at:</b> {{$product->created_at}}</h5>
 					<br>
-					<h5>Updated_at: {{$product->updated_at}}</h5>
+					<h5><b>-Updated_at:</b> {{$product->updated_at}}</h5>
 
 
 				</div>

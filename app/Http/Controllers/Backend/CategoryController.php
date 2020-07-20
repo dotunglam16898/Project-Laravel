@@ -43,7 +43,7 @@ class CategoryController extends Controller
     public function store(Request $request)
     {
         $validatedData= $request->validate([ // C1
-            'name' => 'required|min:6|max:255',
+            'name' => 'required|min:1|max:255',
             
             'parent_id' => 'required|numeric',
             'depth' => 'required|numeric',
@@ -64,7 +64,13 @@ class CategoryController extends Controller
         $category->parent_id = $request->get('parent_id');
         $category->depth = $request->get('depth');
 
-        $category->save();
+        $save= $category->save();
+        $save = 1;
+        if($save){
+            $request->session()->flash('success','Tạo mới thành công');
+        }else{
+            $request->session()->flash('error','Tạo mới thất bại');
+        }
 
         return redirect()->route('backend.category.index');
     }
@@ -152,7 +158,14 @@ class CategoryController extends Controller
         $category->parent_id = $parent_id;
         $category->depth = $depth;
         $category->slug = $slug;
-        $category->save();
+        $save = $category->save();
+
+        $save = 1;
+        if($save){
+            $request->session()->flash('success','Tạo mới thành công');
+        }else{
+            $request->session()->flash('error','Tạo mới thất bại');
+        }
         return redirect()->route('backend.category.index');
     }
 
